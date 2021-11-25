@@ -45,7 +45,7 @@ public class Procedimiento {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al agregar Estudiante - Clase Procedimiento" + e.getMessage());
+            System.out.println("Error en SQL al agregar Datos del estudiante - Clase Procedimiento" + e.getMessage());
             return false;
         }
     }
@@ -60,8 +60,6 @@ public class Procedimiento {
 
             Conexion conect = new Conexion();
             Connection con = conect.obtenerConexion();
-
-    
 
             String query = "UPDATE estudiante set id=?, rut=?, nombre=?, appaterno=?, apmaterno=?, edad=?, nem=?, gratuidad=? WHERE id =?";
             PreparedStatement stmt = con.prepareStatement(query);
@@ -180,7 +178,7 @@ public class Procedimiento {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar estudiantes " + e.getMessage());
+            System.out.println("Error SQL al buscar estudiantes " + e.getMessage());
         }
         return listaEstudiante;
     }

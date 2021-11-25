@@ -1,17 +1,17 @@
-
 package modelo;
 
 import java.util.Date;
 
 /**
  * Proyecto Alumnos DUOC - Finanzas
+ *
  * @author Rodrigo Vásquez, Franco Navarrete, Cristian Ubilla
  */
 public class Pago {
-    
+
     private String estado_matricula, estado_mensualidad, forma_pago, mes_a_pagar;
     private int valor_matricula, valor_mensualidad;
-    private Date fecha_pago;   
+    private Date fecha_pago;
 
     public Pago() {
     }
@@ -81,36 +81,28 @@ public class Pago {
     public void setFecha_pago(Date fecha_pago) {
         this.fecha_pago = fecha_pago;
     }
-    
-    
-    public int calcularDescuento(){
-        
+
+    public int calcularDescuento() {
+
         Estudiante estudiante = new Estudiante();
-       
-    if (estudiante.getNem() >= 6.0 & estudiante.getNem() <=7.0) {
-       int descuento_matricula= (int) (valor_matricula *0.3);
-       valor_matricula = valor_matricula - descuento_matricula;
-       return valor_matricula;
-    } else{ 
-        if (estudiante.getNem() < 6.0) 
-        valor_matricula = valor_matricula; 
-    }
+
+        // if (estudiante.getNem() >= 4.0 & estudiante.getNem() <=7.0){       validacion
+        if (estudiante.getNem() >= 6.0 & estudiante.getNem() <= 7.0) {
+            int descuento_matricula = (int) (valor_matricula * 0.3);
+            this.valor_matricula = (valor_matricula - descuento_matricula);
+        }
         return valor_matricula;
-        
+
     }
- 
-}    
     
+//    public void verificarEstado(){
+//        
+//        if (this.estado_matricula.g)
+//    }
+    
+    
+    
+    
+    
+}
 
-
-
-//
-//
-//
-//if(CONDICION){
-//  return *codigo*;
-//else{
-//  return *codigo*
-//
-//  }
-//}
