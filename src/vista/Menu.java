@@ -28,7 +28,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu3 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,11 +42,11 @@ public class Menu extends javax.swing.JFrame {
         setTitle("Menu");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e5c86e56.662261091529555429821.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/vista/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e5c86e56.662261091529555429821.png")); // NOI18N
 
         jMenu1.setText("Opciones");
 
-        jMenuItem1.setText("Ingreso de estudiantes");
+        jMenuItem1.setText("Ingresar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -54,10 +54,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Modificar datos de estudiante");
+        jMenuItem2.setText("Modificar");
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Eliminar datos de estudiantes");
+        jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -71,17 +76,17 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(234, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel2)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(430, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addComponent(jLabel2)
+                .addGap(68, 68, 68))
         );
 
         pack();
@@ -91,6 +96,10 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,7 +137,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
