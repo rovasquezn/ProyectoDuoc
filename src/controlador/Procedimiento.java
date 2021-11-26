@@ -26,16 +26,17 @@ public class Procedimiento {
             Conexion conect = new Conexion();
             Connection con = conect.obtenerConexion();
 
-            String query = "INSERT INTO estudiante(id,rut,nombre,appaterno,apmaterno,edad,nem, gratuidad)VALUES(?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO estudiante(id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad)VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1, estudiante.getId());
-            stmt.setString(2, estudiante.getRut());
-            stmt.setString(3, estudiante.getNombre());
-            stmt.setString(4, estudiante.getAppaterno());
-            stmt.setString(5, estudiante.getApmaterno());
-            stmt.setInt(6, estudiante.getEdad());
-            stmt.setDouble(7, estudiante.getNem());
-            stmt.setString(8, estudiante.getGratuidad());
+            stmt.setInt(2, estudiante.getRut());
+            stmt.setString(3, estudiante.getDv());
+            stmt.setString(4, estudiante.getNombre());
+            stmt.setString(5, estudiante.getAppaterno());
+            stmt.setString(6, estudiante.getApmaterno());
+            stmt.setInt(7, estudiante.getEdad());
+            stmt.setDouble(8, estudiante.getNem());
+            stmt.setString(9, estudiante.getGratuidad());
           
 
             stmt.executeUpdate();
@@ -61,17 +62,18 @@ public class Procedimiento {
             Conexion conect = new Conexion();
             Connection con = conect.obtenerConexion();
 
-            String query = "UPDATE estudiante set id=?, rut=?, nombre=?, appaterno=?, apmaterno=?, edad=?, nem=?, gratuidad=? WHERE id =?";
+            String query = "UPDATE estudiante set id=?, rut=?, dv=?, nombre=?, appaterno=?, apmaterno=?, edad=?, nem=?, gratuidad=? WHERE id =?";
             PreparedStatement stmt = con.prepareStatement(query);
            
             stmt.setInt(1, estudiante.getId());
-            stmt.setString(2, estudiante.getRut());
-            stmt.setString(3, estudiante.getNombre());
-            stmt.setString(4, estudiante.getAppaterno());
-            stmt.setString(5, estudiante.getApmaterno());
-            stmt.setInt(6, estudiante.getEdad());
-            stmt.setDouble(7, estudiante.getNem());
-            stmt.setString(8, estudiante.getGratuidad());
+            stmt.setInt(2, estudiante.getRut());
+            stmt.setString(3, estudiante.getDv());
+            stmt.setString(4, estudiante.getNombre());
+            stmt.setString(5, estudiante.getAppaterno());
+            stmt.setString(6, estudiante.getApmaterno());
+            stmt.setInt(7, estudiante.getEdad());
+            stmt.setDouble(8, estudiante.getNem());
+            stmt.setString(9, estudiante.getGratuidad());
 
             stmt.executeUpdate();
             stmt.close();
@@ -117,7 +119,7 @@ public class Procedimiento {
             Conexion conect = new Conexion();
            Connection con = conect.obtenerConexion();
            
-            String query = "SELECT id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante WHERE id=?";
+            String query = "SELECT id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante WHERE id=?";
             
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1, id);
@@ -127,7 +129,9 @@ public class Procedimiento {
             if (resultado.next()) {
                 
                 estudiante.setId(resultado.getInt("id"));
-                estudiante.setRut(resultado.getString("rut"));
+                estudiante.setRut(resultado.getInt("rut"));
+                estudiante.setDv(resultado.getString("dv"));
+                
                 estudiante.setNombre(resultado.getString("nombre"));
                 estudiante.setAppaterno(resultado.getString("appaterno"));
                 estudiante.setApmaterno(resultado.getString("apmaterno"));
@@ -155,7 +159,7 @@ public class Procedimiento {
            Conexion conect = new Conexion();
            Connection con = conect.obtenerConexion();
 
-            String query = "SELECT id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante order by appaterno";
+            String query = "SELECT id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante order by appaterno";
             PreparedStatement stmt = con.prepareStatement(query);
 
             ResultSet resultado = stmt.executeQuery();
@@ -164,7 +168,8 @@ public class Procedimiento {
                 
                 Estudiante estudiante = new Estudiante();
                 estudiante.setId(resultado.getInt("id"));
-                estudiante.setRut(resultado.getString("rut"));
+                estudiante.setRut(resultado.getInt("rut"));
+                estudiante.setDv(resultado.getString("dv"));
                 estudiante.setNombre(resultado.getString("nombre"));
                 estudiante.setAppaterno(resultado.getString("appaterno"));
                 estudiante.setApmaterno(resultado.getString("apmaterno"));
