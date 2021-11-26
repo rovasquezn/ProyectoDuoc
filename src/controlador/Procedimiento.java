@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import modelo.Estudiante;
 
@@ -26,18 +27,18 @@ public class Procedimiento {
             Conexion conect = new Conexion();
             Connection con = conect.obtenerConexion();
 
-            String query = "INSERT INTO estudiante(id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad)VALUES(?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO estudiante(rut, nombre, apmaterno, appaterno, gratuidad, edad, id, nem)VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1, estudiante.getId());
-            stmt.setInt(2, estudiante.getRut());
-            stmt.setString(3, estudiante.getDv());
-            stmt.setString(4, estudiante.getNombre());
-            stmt.setString(5, estudiante.getAppaterno());
-            stmt.setString(6, estudiante.getApmaterno());
-            stmt.setInt(7, estudiante.getEdad());
+            stmt.setString(1, estudiante.getRut());
+            stmt.setString(2, estudiante.getNombre());
+            stmt.setString(3, estudiante.getApmaterno());
+            stmt.setString(4, estudiante.getAppaterno());
+            stmt.setString(5, estudiante.getGratuidad());
+            stmt.setInt(6, estudiante.getEdad());
+             stmt.setInt(7, estudiante.getId());
             stmt.setDouble(8, estudiante.getNem());
-            stmt.setString(9, estudiante.getGratuidad());
-          
+            
+         
 
             stmt.executeUpdate();
             stmt.close();
@@ -56,25 +57,23 @@ public class Procedimiento {
     
     public boolean actualizarEstudiante (Estudiante estudiante) {
 
-      
         try {
 
             Conexion conect = new Conexion();
             Connection con = conect.obtenerConexion();
 
-            String query = "UPDATE estudiante set id=?, rut=?, dv=?, nombre=?, appaterno=?, apmaterno=?, edad=?, nem=?, gratuidad=? WHERE id =?";
+            String query = "UPDATE estudiante set rut=?, nombre=?, apmaterno=?, appaterno=?, gratuidad=?, edad=?, id=?, nem=?,  WHERE id =?";
             PreparedStatement stmt = con.prepareStatement(query);
            
-            stmt.setInt(1, estudiante.getId());
-            stmt.setInt(2, estudiante.getRut());
-            stmt.setString(3, estudiante.getDv());
-            stmt.setString(4, estudiante.getNombre());
-            stmt.setString(5, estudiante.getAppaterno());
-            stmt.setString(6, estudiante.getApmaterno());
-            stmt.setInt(7, estudiante.getEdad());
+            stmt.setString(1, estudiante.getRut());
+            stmt.setString(2, estudiante.getNombre());
+            stmt.setString(3, estudiante.getApmaterno());
+            stmt.setString(4, estudiante.getAppaterno());
+            stmt.setString(5, estudiante.getGratuidad());
+            stmt.setInt(6, estudiante.getEdad());
+            stmt.setInt(7, estudiante.getId());
             stmt.setDouble(8, estudiante.getNem());
-            stmt.setString(9, estudiante.getGratuidad());
-
+   
             stmt.executeUpdate();
             stmt.close();
             con.close();
@@ -114,12 +113,12 @@ public class Procedimiento {
      public Estudiante buscarEstudiantePorId(int id) {
 
         Estudiante estudiante = new Estudiante();
-        
+       
         try {
             Conexion conect = new Conexion();
            Connection con = conect.obtenerConexion();
            
-            String query = "SELECT id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante WHERE id=?";
+            String query = "SELECT rut, nombre, apmaterno, appaterno, gratuidadedad, edad, id, nem,  FROM estudiante WHERE id=?";
             
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1, id);
@@ -128,17 +127,18 @@ public class Procedimiento {
 
             if (resultado.next()) {
                 
-                estudiante.setId(resultado.getInt("id"));
-                estudiante.setRut(resultado.getInt("rut"));
-                estudiante.setDv(resultado.getString("dv"));
-                
+                estudiante.setRut(resultado.getString("rut"));
                 estudiante.setNombre(resultado.getString("nombre"));
-                estudiante.setAppaterno(resultado.getString("appaterno"));
                 estudiante.setApmaterno(resultado.getString("apmaterno"));
-                estudiante.setEdad(resultado.getInt("edad"));
-                estudiante.setNem(resultado.getDouble("nem"));
+                 estudiante.setAppaterno(resultado.getString("appaterno"));
                 estudiante.setGratuidad(resultado.getString("gratuidad"));
-
+                estudiante.setEdad(resultado.getInt("edad"));
+                 estudiante.setId(resultado.getInt("id"));
+                estudiante.setNem(resultado.getDouble("nem"));
+                
+               
+  
+                
             }
             resultado.close();
             stmt.close();
@@ -152,6 +152,67 @@ public class Procedimiento {
     
      
      
+     
+     
+      public boolean buscarEstudiantePorRut(String rut) {
+
+        Estudiante estudiante = new Estudiante();
+      
+
+        try {
+            Conexion conect = new Conexion();
+           Connection con = conect.obtenerConexion();
+           
+            String query = "SELECT rut FROM estudiante WHERE rut=?";
+            
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, rut);
+
+            ResultSet resultado = stmt.executeQuery();
+
+            if (resultado.next()) {
+                return true;
+//                 JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
+               // estudiante.setRut(resultado.getString("rut"));
+               
+           
+                 
+                  
+              
+   
+            }
+            resultado.close();
+            stmt.close();
+            con.close();
+            
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al buscar al estudiante por rut " + e.getMessage());
+        }
+        
+        return false;
+    }
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
      public List <Estudiante> buscarTodos() {
 
         List <Estudiante> listaEstudiante = new ArrayList<>();
@@ -159,7 +220,7 @@ public class Procedimiento {
            Conexion conect = new Conexion();
            Connection con = conect.obtenerConexion();
 
-            String query = "SELECT id, rut, dv, nombre, appaterno, apmaterno, edad, nem, gratuidad FROM estudiante order by appaterno";
+            String query = "SELECT rut, nombre, apmaterno, appaterno, gratuidad, edad, id, nem,  FROM estudiante order by appaterno";
             PreparedStatement stmt = con.prepareStatement(query);
 
             ResultSet resultado = stmt.executeQuery();
@@ -167,15 +228,17 @@ public class Procedimiento {
             while (resultado.next()) {
                 
                 Estudiante estudiante = new Estudiante();
-                estudiante.setId(resultado.getInt("id"));
-                estudiante.setRut(resultado.getInt("rut"));
-                estudiante.setDv(resultado.getString("dv"));
-                estudiante.setNombre(resultado.getString("nombre"));
-                estudiante.setAppaterno(resultado.getString("appaterno"));
+                
+                estudiante.setRut(resultado.getString("rut"));
+                 estudiante.setNombre(resultado.getString("nombre"));
                 estudiante.setApmaterno(resultado.getString("apmaterno"));
-                estudiante.setEdad(resultado.getInt("edad"));
-                estudiante.setNem(resultado.getDouble("nem"));
+                estudiante.setAppaterno(resultado.getString("appaterno"));
                 estudiante.setGratuidad(resultado.getString("gratuidad"));
+                 estudiante.setEdad(resultado.getInt("edad"));
+                 estudiante.setId(resultado.getInt("id"));
+                estudiante.setNem(resultado.getDouble("nem"));
+                
+    
                 listaEstudiante.add(estudiante);
             }
             resultado.close();

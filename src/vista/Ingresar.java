@@ -18,12 +18,24 @@ import modelo.Estudiante;
  * @author rodrigo
  */
 public class Ingresar extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form Ingresar
      */
     public Ingresar() {
         initComponents();
+        
+        
+        
+                jtxt_nombre.setEnabled(false);
+                jtxt_apmaterno.setEnabled(false);
+                jtxt_appaterno.setEnabled(false);
+                jtxt_edad.setEnabled(false);
+                jrdb_tiene.setEnabled(false);
+                jrdb_no_tiene.setEnabled(false);
+                jtxt_nem.setEnabled(false);
     }
 
     /**
@@ -57,8 +69,6 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jbtn_ingresar = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jtxt_dv = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +76,7 @@ public class Ingresar extends javax.swing.JFrame {
 
         jLabel2.setText("Ingreso de datos");
 
-        jLabel4.setText("Ingrese RUN");
+        jLabel4.setText("Ingrese R.U.T.");
 
         jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,8 +124,6 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText("-");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,16 +132,15 @@ public class Ingresar extends javax.swing.JFrame {
                 .addGap(106, 106, 106)
                 .addComponent(jLabel4)
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtxt_rut))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel10)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
+                        .addGap(113, 113, 113)
                         .addComponent(jbtn_verificar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -192,12 +199,10 @@ public class Ingresar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_verificar)
-                    .addComponent(jLabel11)
-                    .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                    .addComponent(jbtn_verificar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(26, 26, 26)
+                .addGap(25, 25, 25)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -230,6 +235,7 @@ public class Ingresar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
@@ -243,64 +249,58 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void jbtn_verificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_verificarActionPerformed
 
-//        Validar valida = new Validar ();
-//        boolean flag;
-//        int rut;
-//        
-//        do {
-//                          rut = this.jtxt_rut.getText();
-////                        System.out.println("Ingrese rut: ");
-////                        rut = teclado.nextInt();
-////                        System.out.println("Ingrese dv: ");
-//                        this.jtxt_dv.getText();
-//                        dv = teclado.next().charAt(0);
-//                        flag = valida.validarRut(rut, dv);
-//
-//                        if (flag == false) {
-//                            System.out.println("Rut no válido, intente nuevamente");
-//                        }
-//
-//                    } while (flag == false);
-        int rut;
-        String dv;
+               
+        String rut;
 
-        try {
-            rut = Integer.parseInt(this.jtxt_rut.getText());
+        rut = this.jtxt_rut.getText();
 
-        } catch (NumberFormatException e) {
-
-            JOptionPane.showMessageDialog(this, "El rut debe ser un numero", "Validación", 1);
+        if (rut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
             this.jtxt_rut.requestFocus();
             return;
+        }else
+        {
+            
+            boolean flag;
+            Procedimiento proce = new Procedimiento();
+            proce.buscarEstudiantePorRut(rut);
+            flag = proce.buscarEstudiantePorRut(rut);
+            if (flag == true){
+                JOptionPane.showMessageDialog(this, "El estudiante ya fue ingresado anteriormente", "Validación", 2);
+ 
+                
+            }else {
+            JOptionPane.showMessageDialog(this, "El estudiante no existe, puede ingresar los datos", "Validación", 1);
+            jtxt_nombre.setEnabled(true);
+                jtxt_apmaterno.setEnabled(true);
+                jtxt_appaterno.setEnabled(true);
+                jtxt_edad.setEnabled(true);
+                jrdb_tiene.setEnabled(true);
+                jrdb_no_tiene.setEnabled(true);
+                jtxt_nem.setEnabled(true);
         }
-
-        dv = this.jtxt_dv.getText();
-
-        if (dv.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Dígito Verificador no puede estar vacío", "Validación", 1);
-            this.jtxt_dv.requestFocus();
-            return;
+            
+            
+            
+            
         }
+        
+        
+        
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_verificarActionPerformed
 
     private void jbtn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingresarActionPerformed
 
-        String dv,nombre, appaterno, apmaterno, gratuidad="";
-        int rut, edad;
+        String rut,nombre, appaterno, apmaterno, gratuidad="";
+        int edad;
         double nem;
         
-         rut = Integer.parseInt(this.jtxt_rut.getText());
+         rut = this.jtxt_rut.getText();
          
          
-         
-         
-         
-         
-         dv = this.jtxt_dv.getText();
-         
-
         nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nombre no puede estar vacio", "Validación", 1);
@@ -352,7 +352,7 @@ public class Ingresar extends javax.swing.JFrame {
         }
 
         
-        Estudiante estudiante = new Estudiante(nombre, apmaterno, appaterno, gratuidad, edad, edad, rut, nem, dv);
+        Estudiante estudiante = new Estudiante(rut, nombre, apmaterno, appaterno, gratuidad, edad, 0, nem);
        
         
         Procedimiento proce = new Procedimiento();
@@ -486,7 +486,6 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -502,7 +501,6 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrdb_tiene;
     private javax.swing.JTextField jtxt_apmaterno;
     private javax.swing.JTextField jtxt_appaterno;
-    private javax.swing.JTextField jtxt_dv;
     private javax.swing.JTextField jtxt_edad;
     private javax.swing.JTextField jtxt_nem;
     private javax.swing.JTextField jtxt_nombre;

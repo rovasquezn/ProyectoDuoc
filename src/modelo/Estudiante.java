@@ -7,24 +7,30 @@ package modelo;
  */
 public class Estudiante {
     
-    private String nombre, apmaterno, appaterno, gratuidad;
-    private int edad, id, rut;
+    private String rut,nombre, apmaterno, appaterno, gratuidad;
+    private int edad, id;
     private double nem;
-    private String dv;
 
     public Estudiante() {
     }
 
-    public Estudiante(String nombre, String apmaterno, String appaterno, String gratuidad, int edad, int id, int rut, double nem, String dv) {
+    public Estudiante(String rut, String nombre, String apmaterno, String appaterno, String gratuidad, int edad, int id, double nem) {
+        this.rut = rut;
         this.nombre = nombre;
         this.apmaterno = apmaterno;
         this.appaterno = appaterno;
         this.gratuidad = gratuidad;
         this.edad = edad;
         this.id = id;
-        this.rut = rut;
         this.nem = nem;
-        this.dv = dv;
+    }
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
     }
 
     public String getNombre() {
@@ -75,14 +81,6 @@ public class Estudiante {
         this.id = id;
     }
 
-    public int getRut() {
-        return rut;
-    }
-
-    public void setRut(int rut) {
-        this.rut = rut;
-    }
-
     public double getNem() {
         return nem;
     }
@@ -90,15 +88,7 @@ public class Estudiante {
     public void setNem(double nem) {
         this.nem = nem;
     }
-
-    public String getDv() {
-        return dv;
-    }
-
-    public void setDv(String dv) {
-        this.dv = dv;
-    }
-
+    
    
-   
+
 }

@@ -23,5 +23,9 @@ public class Validar {
         return Character.toUpperCase(dv) == (char) (s != 0 ? s + 47 : 75);
 
     }
+
+//    public boolean validarRut(int rut, String dv) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
 }
