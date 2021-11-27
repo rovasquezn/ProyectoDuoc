@@ -31,10 +31,10 @@ public Connection obtenerConexion() {
     
 }  
     
-//    public static void main(String[] args) {
-//        Conexion con = new Conexion();
-//        con.obtenerConexion();
-//    }
+    public static void main(String[] args) {
+       Conexion con = new Conexion();
+        con.obtenerConexion();
+    }
 
 
 
