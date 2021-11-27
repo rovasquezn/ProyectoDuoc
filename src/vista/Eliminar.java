@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author navar
+ * rodrigo Vazques Franco Navarrete Cristian Ubilla
  */
 public class Eliminar extends javax.swing.JFrame {
 
