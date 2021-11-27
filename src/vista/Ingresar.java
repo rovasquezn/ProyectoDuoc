@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Estudiante;
 
 /**
@@ -18,24 +19,22 @@ import modelo.Estudiante;
  * @author rodrigo
  */
 public class Ingresar extends javax.swing.JFrame {
-    
-    
 
     /**
      * Creates new form Ingresar
      */
     public Ingresar() {
         initComponents();
-        
-        
-        
-                jtxt_nombre.setEnabled(false);
-                jtxt_apmaterno.setEnabled(false);
-                jtxt_appaterno.setEnabled(false);
-                jtxt_edad.setEnabled(false);
-                jrdb_tiene.setEnabled(false);
-                jrdb_no_tiene.setEnabled(false);
-                jtxt_nem.setEnabled(false);
+
+        jtxt_nombre.setEnabled(false);
+        jtxt_apmaterno.setEnabled(false);
+        jtxt_appaterno.setEnabled(false);
+        jtxt_edad.setEnabled(false);
+        jrdb_tiene.setEnabled(false);
+        jrdb_no_tiene.setEnabled(false);
+        jtxt_nem.setEnabled(false);
+        jbtn_ingresar.setEnabled(false);
+        jbtn_limpiar.setEnabled(false);
     }
 
     /**
@@ -48,6 +47,7 @@ public class Ingresar extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -69,6 +69,8 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jbtn_ingresar = new javax.swing.JButton();
+        jbtn_volver = new javax.swing.JButton();
+        jbtn_limpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +86,7 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
+        jbtn_verificar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/verificado.png")); // NOI18N
         jbtn_verificar.setText("Verificar");
         jbtn_verificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +95,8 @@ public class Ingresar extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Nombre");
+
+        jSeparator1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setText("Apellido Paterno");
 
@@ -117,10 +122,27 @@ public class Ingresar extends javax.swing.JFrame {
 
         jLabel10.setText("Ej: 11111111-1");
 
+        jbtn_ingresar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/guardar-datos.png")); // NOI18N
         jbtn_ingresar.setText("Ingresar Datos");
         jbtn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_ingresarActionPerformed(evt);
+            }
+        });
+
+        jbtn_volver.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/volver (2).png")); // NOI18N
+        jbtn_volver.setText("Volver");
+        jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_volverActionPerformed(evt);
+            }
+        });
+
+        jbtn_limpiar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/limpieza-de-datos.png")); // NOI18N
+        jbtn_limpiar.setText("Limpiar");
+        jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_limpiarActionPerformed(evt);
             }
         });
 
@@ -147,43 +169,46 @@ public class Ingresar extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(58, 58, 58))))
+                        .addGap(56, 56, 56))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7))
-                            .addGap(36, 36, 36)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxt_appaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                .addComponent(jtxt_nombre)
-                                .addComponent(jtxt_apmaterno)
-                                .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(366, 366, 366))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel9))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(126, 126, 126)
-                                    .addComponent(jrdb_tiene)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(jrdb_no_tiene)))
-                            .addGap(80, 80, 80)
-                            .addComponent(jbtn_ingresar)
-                            .addGap(229, 229, 229)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))))
+                .addGap(0, 144, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxt_appaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jtxt_nombre)
+                            .addComponent(jtxt_apmaterno)
+                            .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(379, 379, 379))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jrdb_tiene)
+                        .addGap(41, 41, 41)
+                        .addComponent(jrdb_no_tiene)
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(jbtn_ingresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtn_limpiar)
+                        .addGap(24, 24, 24)
+                        .addComponent(jbtn_volver)
+                        .addGap(16, 16, 16))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,18 +218,18 @@ public class Ingresar extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(49, 49, 49)
                         .addComponent(jLabel1)))
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtn_verificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(25, 25, 25)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,25 +244,46 @@ public class Ingresar extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jrdb_tiene)
-                            .addComponent(jrdb_no_tiene))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtn_ingresar)))
+                            .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jtxt_apmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jrdb_tiene)
+                    .addComponent(jrdb_no_tiene))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_ingresar)
+                    .addComponent(jbtn_volver)
+                    .addComponent(jbtn_limpiar))
+                .addGap(58, 58, 58))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void limpiarDatos() {
+                this.jtxt_rut.setText("");
+                this.jtxt_nombre.setText("");
+                this.jtxt_apmaterno.setText("");
+                this.jtxt_appaterno.setText("");
+                this.jtxt_edad.setText("");
+               
+                this.jtxt_nem.setText("");
+                buttonGroup1.clearSelection();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_nombreActionPerformed
@@ -249,7 +295,6 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void jbtn_verificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_verificarActionPerformed
 
-               
         String rut;
 
         rut = this.jtxt_rut.getText();
@@ -258,49 +303,41 @@ public class Ingresar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
             this.jtxt_rut.requestFocus();
             return;
-        }else
-        {
-            
+        } else {
+
             boolean flag;
             Procedimiento proce = new Procedimiento();
             proce.buscarEstudiantePorRut(rut);
             flag = proce.buscarEstudiantePorRut(rut);
-            if (flag == true){
+            if (flag == true) {
                 JOptionPane.showMessageDialog(this, "El estudiante ya fue ingresado anteriormente", "Validación", 2);
- 
-                
-            }else {
-            JOptionPane.showMessageDialog(this, "El estudiante no existe, puede ingresar los datos", "Validación", 1);
-            jtxt_nombre.setEnabled(true);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "El estudiante no existe, puede ingresar los datos", "Validación", 1);
+                jtxt_nombre.setEnabled(true);
                 jtxt_apmaterno.setEnabled(true);
                 jtxt_appaterno.setEnabled(true);
                 jtxt_edad.setEnabled(true);
                 jrdb_tiene.setEnabled(true);
                 jrdb_no_tiene.setEnabled(true);
                 jtxt_nem.setEnabled(true);
+                jbtn_ingresar.setEnabled(true);
+                jbtn_limpiar.setEnabled(true);
+            }
+
         }
-            
-            
-            
-            
-        }
-        
-        
-        
-        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_verificarActionPerformed
 
     private void jbtn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingresarActionPerformed
 
-        String rut,nombre, appaterno, apmaterno, gratuidad="";
+        String rut, nombre, appaterno, apmaterno, gratuidad = "";
         int edad;
         double nem;
-        
-         rut = this.jtxt_rut.getText();
-         
-         
+
+        rut = this.jtxt_rut.getText();
+
         nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nombre no puede estar vacio", "Validación", 1);
@@ -351,36 +388,56 @@ public class Ingresar extends javax.swing.JFrame {
             return;
         }
 
-        
         Estudiante estudiante = new Estudiante(rut, nombre, apmaterno, appaterno, gratuidad, edad, 0, nem);
-       
-        
+
         Procedimiento proce = new Procedimiento();
-        
+
         if (proce.ingresarEstudiante(estudiante)) {
-            JOptionPane.showMessageDialog(this, "Se agregaron los datos del estudiante", "Aviso",1);
             
+            
+            int salida = JOptionPane.showConfirmDialog(null, "Datos agregados exitosamente, desea agregar otro estudiante?", "Informacion", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            switch (salida) {
+                case 0:
+                    //"Has pulsado Sí";
+               jtxt_nombre.setEnabled(false);
+                jtxt_apmaterno.setEnabled(false);
+                 jtxt_appaterno.setEnabled(false);
+                jtxt_edad.setEnabled(false);
+                jrdb_tiene.setEnabled(false);
+                jrdb_no_tiene.setEnabled(false);
+                     jtxt_nem.setEnabled(false);
+                jbtn_ingresar.setEnabled(false);
+                limpiarDatos();
+                      
+                this.jtxt_rut.requestFocus();
+                    break;
+                case 1:
+                    //"Has pulsado No";
+                    
+                    dispose();
+            }
+            
+            
+           // JOptionPane.showMessageDialog(this, "Se agregaron los datos del estudiante", "Aviso", 1);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No se agregaron los datos del estudiante", "Aviso", 1);
         }
-        else{
-            JOptionPane.showMessageDialog(this, "No se agregaron los datos del estudiante", "Aviso",1);
-        } 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         //if (this.jrdb_cta_cte.isSelected() || this.jrdb_cta_ahorro.isSelected()) {
         //String titulo,autor,dia,mes,ano,fechaStr;
 //        Date fecha;
@@ -447,6 +504,25 @@ public class Ingresar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbtn_ingresarActionPerformed
 
+    private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
+        dispose();  // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
+    limpiarDatos();   
+    jtxt_nombre.setEnabled(false);
+        jtxt_apmaterno.setEnabled(false);
+        jtxt_appaterno.setEnabled(false);
+        jtxt_edad.setEnabled(false);
+        jrdb_tiene.setEnabled(false);
+        jrdb_no_tiene.setEnabled(false);
+        jtxt_nem.setEnabled(false);
+        jbtn_ingresar.setEnabled(false);
+        jbtn_limpiar.setEnabled(false);
+    
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_limpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -495,8 +571,11 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtn_ingresar;
+    private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JButton jbtn_verificar;
+    private javax.swing.JButton jbtn_volver;
     private javax.swing.JRadioButton jrdb_no_tiene;
     private javax.swing.JRadioButton jrdb_tiene;
     private javax.swing.JTextField jtxt_apmaterno;

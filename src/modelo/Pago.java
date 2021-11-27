@@ -9,17 +9,18 @@ import java.util.Date;
  */
 public class Pago {
 
-    private String estado_matricula, estado_mensualidad, forma_pago, mes_a_pagar;
+    private String estado_matricula, estado_mensualidad, forma_pago_mensualidad, forma_pago_matricula, mes_a_pagar;
     private int valor_matricula, valor_mensualidad;
     private Date fecha_pago;
 
     public Pago() {
     }
 
-    public Pago(String estado_matricula, String estado_mensualidad, String forma_pago, String mes_a_pagar, int valor_matricula, int valor_mensualidad, Date fecha_pago) {
+    public Pago(String estado_matricula, String estado_mensualidad, String forma_pago_mensualidad, String forma_pago_matricula, String mes_a_pagar, int valor_matricula, int valor_mensualidad, Date fecha_pago) {
         this.estado_matricula = estado_matricula;
         this.estado_mensualidad = estado_mensualidad;
-        this.forma_pago = forma_pago;
+        this.forma_pago_mensualidad = forma_pago_mensualidad;
+        this.forma_pago_matricula = forma_pago_matricula;
         this.mes_a_pagar = mes_a_pagar;
         this.valor_matricula = valor_matricula;
         this.valor_mensualidad = valor_mensualidad;
@@ -42,12 +43,20 @@ public class Pago {
         this.estado_mensualidad = estado_mensualidad;
     }
 
-    public String getForma_pago() {
-        return forma_pago;
+    public String getForma_pago_mensualidad() {
+        return forma_pago_mensualidad;
     }
 
-    public void setForma_pago(String forma_pago) {
-        this.forma_pago = forma_pago;
+    public void setForma_pago_mensualidad(String forma_pago_mensualidad) {
+        this.forma_pago_mensualidad = forma_pago_mensualidad;
+    }
+
+    public String getForma_pago_matricula() {
+        return forma_pago_matricula;
+    }
+
+    public void setForma_pago_matricula(String forma_pago_matricula) {
+        this.forma_pago_matricula = forma_pago_matricula;
     }
 
     public String getMes_a_pagar() {
@@ -82,6 +91,11 @@ public class Pago {
         this.fecha_pago = fecha_pago;
     }
 
+
+    
+    
+    
+    
     public int calcularDescuento() {
 
         Estudiante estudiante = new Estudiante();
