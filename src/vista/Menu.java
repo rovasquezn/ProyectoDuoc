@@ -28,6 +28,15 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu3 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -36,8 +45,28 @@ public class Menu extends javax.swing.JFrame {
         jmi_eliminar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmi_buscar_estudiante = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        jmi_mostrar_todos = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
+
+        jMenu4.setText("File");
+        jMenuBar2.add(jMenu4);
+
+        jMenu5.setText("Edit");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("File");
+        jMenuBar3.add(jMenu6);
+
+        jMenu7.setText("Edit");
+        jMenuBar3.add(jMenu7);
+
+        jMenu8.setText("File");
+        jMenuBar4.add(jMenu8);
+
+        jMenu9.setText("Edit");
+        jMenuBar4.add(jMenu9);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu");
@@ -85,6 +114,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu10.setText("Listar");
+
+        jmi_mostrar_todos.setText("Mostrar Todo");
+        jmi_mostrar_todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_mostrar_todosActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jmi_mostrar_todos);
+
+        jMenuBar1.add(jMenu10);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,7 +140,7 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(430, Short.MAX_VALUE)
+                .addContainerGap(352, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(68, 68, 68))
         );
@@ -124,6 +165,11 @@ public class Menu extends javax.swing.JFrame {
          new Buscar().setVisible(true);
     // TODO add your handling code here:
     }//GEN-LAST:event_jmi_buscar_estudianteActionPerformed
+
+    private void jmi_mostrar_todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_mostrar_todosActionPerformed
+        new Listar().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_mostrar_todosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,12 +209,23 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jmi_buscar_estudiante;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_ingresar;
     private javax.swing.JMenuItem jmi_modificar;
+    private javax.swing.JMenuItem jmi_mostrar_todos;
     // End of variables declaration//GEN-END:variables
 }

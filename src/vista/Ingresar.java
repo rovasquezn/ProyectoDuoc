@@ -35,6 +35,23 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem.setEnabled(false);
         jbtn_ingresar.setEnabled(false);
         jbtn_limpiar.setEnabled(false);
+        jcbox_sedes.setSelectedIndex(-1);
+        jcbox_sedes.setEnabled(false);
+        jcbox_carreras.setSelectedIndex(-1);
+        jcbox_carreras.setEnabled(false);
+        jtxt_valor_matricula.setEnabled(false);
+        jcbox_dia.setSelectedIndex(-1);
+        jcbox_dia.setEnabled(false);
+        jcbox_mes.setSelectedIndex(-1);
+        jcbox_mes.setEnabled(false);
+        jcbox_anio.setSelectedIndex(-1);
+        jcbox_anio.setEnabled(false);
+        jcbox_estado_matricula.setSelectedIndex(-1);
+        jcbox_estado_matricula.setEnabled(false);
+        jbtn_verificar_nem.setEnabled(false);
+        jtxt_valor_matricula_pagar.setEnabled(false);
+        
+
     }
 
     /**
@@ -71,11 +88,29 @@ public class Ingresar extends javax.swing.JFrame {
         jbtn_ingresar = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
         jbtn_limpiar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jcbox_sedes = new javax.swing.JComboBox<>();
+        jcbox_carreras = new javax.swing.JComboBox<>();
+        jcbox_estado_matricula = new javax.swing.JComboBox<>();
+        jtxt_valor_matricula = new javax.swing.JTextField();
+        jcbox_dia = new javax.swing.JComboBox<>();
+        jcbox_mes = new javax.swing.JComboBox<>();
+        jcbox_anio = new javax.swing.JComboBox<>();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jbtn_verificar_nem = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jtxt_valor_matricula_pagar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/vista/logo2.png")); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Ingreso de datos");
 
         jLabel4.setText("Ingrese R.U.T.");
@@ -108,11 +143,21 @@ public class Ingresar extends javax.swing.JFrame {
 
         buttonGroup1.add(jrdb_tiene);
         jrdb_tiene.setText("Tiene");
+        jrdb_tiene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrdb_tieneActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jrdb_no_tiene);
         jrdb_no_tiene.setText("No Tiene");
+        jrdb_no_tiene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrdb_no_tieneActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setText("Nota Enseñanza Media (NEM)");
+        jLabel9.setText("Nota Enseñanza Media (N.E.M)");
 
         jtxt_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,9 +165,21 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
+        jtxt_appaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_appaternoActionPerformed(evt);
+            }
+        });
+
+        jtxt_nem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_nemActionPerformed(evt);
+            }
+        });
+
         jLabel10.setText("Ej: 11111111-1");
 
-        jbtn_ingresar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/guardar-datos.png")); // NOI18N
+        jbtn_ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/entrar.png"))); // NOI18N
         jbtn_ingresar.setText("Ingresar Datos");
         jbtn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +187,7 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
-        jbtn_volver.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/volver (2).png")); // NOI18N
+        jbtn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/volver (2).png"))); // NOI18N
         jbtn_volver.setText("Volver");
         jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +195,7 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
-        jbtn_limpiar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/limpieza-de-datos.png")); // NOI18N
+        jbtn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/limpieza-de-datos.png"))); // NOI18N
         jbtn_limpiar.setText("Limpiar");
         jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,150 +203,278 @@ public class Ingresar extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setText("Estado Matricula");
+
+        jLabel12.setText("Valor Matrícula $");
+
+        jLabel15.setText("Fecha de Pago Matricula");
+
+        jLabel16.setText("Sede");
+
+        jLabel17.setText("Carrera");
+
+        jcbox_sedes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valparaíso", "Viña del Mar", "Region Metropolitana Alameda", "Region Metropolitana Antonio Varas", "Region Metropolitana Maipú", "Region Metropolitana Melipilla", "Region Metropolitana Plaza Vespucio", "Concepcion", "Villarrica", "Puerto Montt" }));
+        jcbox_sedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbox_sedesActionPerformed(evt);
+            }
+        });
+
+        jcbox_carreras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniería en Conectividad y Redes", "Ingeniería en Informática", "Analista Programador Computacional", "Técno en Construccion", "Ingeniería en Prevención de Riesgos", "Técnico Topógrafo", "Animacion Digital", "Ingeniería en Sonido", "Técnico Audiovidual", "Publicidad", "Diseño Gráfico", "Diseño de Ambientes", "Técnico en Enfermería", "Técnico en Química y Farmacia" }));
+
+        jcbox_estado_matricula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pagado", "Gratuidad" }));
+        jcbox_estado_matricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbox_estado_matriculaActionPerformed(evt);
+            }
+        });
+
+        jtxt_valor_matricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_valor_matriculaActionPerformed(evt);
+            }
+        });
+
+        jcbox_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jcbox_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        jcbox_anio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022" }));
+
+        jbtn_verificar_nem.setText("Verificar N.E.M");
+        jbtn_verificar_nem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_verificar_nemActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Total Matricula $");
+
+        jtxt_valor_matricula_pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_valor_matricula_pagarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(jLabel4)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel10)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jbtn_verificar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(56, 56, 56))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 144, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxt_appaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                            .addComponent(jtxt_nombre)
-                            .addComponent(jtxt_apmaterno)
-                            .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(379, 379, 379))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jrdb_tiene)
-                        .addGap(41, 41, 41)
-                        .addComponent(jrdb_no_tiene)
-                        .addGap(41, 41, 41))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                        .addComponent(jbtn_ingresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtn_limpiar)
-                        .addGap(24, 24, 24)
-                        .addComponent(jbtn_volver)
-                        .addGap(16, 16, 16))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addComponent(jLabel2)
+                .addGap(226, 226, 226)
+                .addComponent(jLabel1)
+                .addGap(25, 25, 25))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcbox_sedes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jcbox_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxt_valor_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jrdb_tiene)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jrdb_no_tiene))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtxt_appaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtxt_apmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jbtn_verificar_nem)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtxt_valor_matricula_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbtn_ingresar)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jbtn_limpiar)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jbtn_volver))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcbox_estado_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbox_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbox_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbox_anio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 228, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(186, 186, 186)
+                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jbtn_verificar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(77, 77, 77))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel1)))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_verificar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jbtn_verificar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jtxt_appaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jtxt_appaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
                     .addComponent(jtxt_apmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jtxt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(jcbox_sedes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(jcbox_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_valor_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
                     .addComponent(jLabel8)
                     .addComponent(jrdb_tiene)
-                    .addComponent(jrdb_no_tiene))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrdb_no_tiene)
                     .addComponent(jLabel9)
-                    .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_ingresar)
-                    .addComponent(jbtn_volver)
-                    .addComponent(jbtn_limpiar))
-                .addGap(58, 58, 58))
+                    .addComponent(jtxt_nem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtn_verificar_nem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbox_dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbox_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbox_anio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel11)
+                    .addComponent(jcbox_estado_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbtn_ingresar)
+                            .addComponent(jbtn_volver)
+                            .addComponent(jbtn_limpiar))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jtxt_valor_matricula_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void limpiarDatos() {
-                this.jtxt_rut.setText("");
-                this.jtxt_nombre.setText("");
-                this.jtxt_apmaterno.setText("");
-                this.jtxt_appaterno.setText("");
-                this.jtxt_edad.setText("");
-               
-                this.jtxt_nem.setText("");
-                buttonGroup1.clearSelection();
+        this.jtxt_rut.setText("");
+        this.jtxt_nombre.setText("");
+        this.jtxt_apmaterno.setText("");
+        this.jtxt_appaterno.setText("");
+        this.jtxt_edad.setText("");
+
+        this.jtxt_nem.setText("");
+        buttonGroup1.clearSelection();
+        jcbox_sedes.setSelectedIndex(-1);
+        jcbox_sedes.setEnabled(false);
+        jcbox_carreras.setSelectedIndex(-1);
+        jcbox_carreras.setEnabled(false);
+        jtxt_valor_matricula.setEnabled(false);
+        this.jtxt_valor_matricula.setText("");
+        jcbox_dia.setSelectedIndex(-1);
+        jcbox_dia.setEnabled(false);
+        jcbox_mes.setSelectedIndex(-1);
+        jcbox_mes.setEnabled(false);
+        jcbox_anio.setSelectedIndex(-1);
+        jcbox_anio.setEnabled(false);
+        jcbox_estado_matricula.setSelectedIndex(-1);
+        jcbox_estado_matricula.setEnabled(false);
+         jtxt_valor_matricula_pagar.setEnabled(false);
+        jtxt_valor_matricula_pagar.setEditable(false);
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_nombreActionPerformed
 
     private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
-
 
     }//GEN-LAST:event_jtxt_rutActionPerformed
 
@@ -308,7 +493,7 @@ public class Ingresar extends javax.swing.JFrame {
             boolean flag;
             Procedimiento proce = new Procedimiento();
             proce.buscarEstudiantePorRut(rut);
-            flag = proce.buscarEstudiantePorRut(rut);
+            flag = proce.buscarEstudiantePorRutBandera(rut);
             if (flag == true) {
                 JOptionPane.showMessageDialog(this, "El estudiante ya fue ingresado anteriormente", "Validación", 2);
 
@@ -321,8 +506,28 @@ public class Ingresar extends javax.swing.JFrame {
                 jrdb_tiene.setEnabled(true);
                 jrdb_no_tiene.setEnabled(true);
                 jtxt_nem.setEnabled(true);
-                jbtn_ingresar.setEnabled(true);
+                jbtn_ingresar.setEnabled(false);
                 jbtn_limpiar.setEnabled(true);
+
+                jcbox_sedes.setSelectedIndex(-1);
+                jcbox_sedes.setEnabled(true);
+                jcbox_carreras.setSelectedIndex(-1);
+                jcbox_carreras.setEnabled(true);
+                jtxt_valor_matricula.setEnabled(true);
+                jcbox_dia.setSelectedIndex(-1);
+                jcbox_dia.setEnabled(true);
+                jcbox_mes.setSelectedIndex(-1);
+                jcbox_mes.setEnabled(true);
+                jcbox_anio.setSelectedIndex(-1);
+                jcbox_anio.setEnabled(true);
+                jcbox_estado_matricula.setSelectedIndex(-1);
+                jcbox_estado_matricula.setEnabled(true);
+                 jbtn_verificar_nem.setEnabled(true);
+                 jtxt_valor_matricula_pagar.setEnabled(true);
+                jtxt_valor_matricula_pagar.setEditable(false);
+                
+                
+                
             }
 
         }
@@ -332,9 +537,13 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void jbtn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingresarActionPerformed
 
-        String rut, nombre, appaterno, apmaterno, gratuidad = "";
-        int edad;
+        String rut, nombre, apmaterno, appaterno, gratuidad = "";
+        int edad, id;
         double nem;
+        String estado_matricula;
+        int valor_matricula, valor_matricula_pagar;
+        Date fecha_pago_matricula;
+        String nombre_carrera, nombre_sede, fechaCadena;
 
         rut = this.jtxt_rut.getText();
 
@@ -346,14 +555,14 @@ public class Ingresar extends javax.swing.JFrame {
         }
 
         appaterno = this.jtxt_appaterno.getText();
-        if (nombre.isEmpty()) {
+        if (appaterno.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Apellido Paterno no puede estar vacio", "Validación", 1);
             this.jtxt_appaterno.requestFocus();
             return;
         }
 
         apmaterno = this.jtxt_apmaterno.getText();
-        if (nombre.isEmpty()) {
+        if (apmaterno.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Apellido Materno no puede estar vacio", "Validación", 1);
             this.jtxt_apmaterno.requestFocus();
             return;
@@ -380,6 +589,13 @@ public class Ingresar extends javax.swing.JFrame {
 
         try {
             nem = Double.parseDouble(this.jtxt_nem.getText());
+            
+          
+            if (nem< 4.0 || nem > 7.0 ){
+                JOptionPane.showMessageDialog(this, "Nota debe ser entre 4.0 y 7.0", "Validación", 1);
+            this.jtxt_nem.requestFocus();
+             
+         }
 
         } catch (NumberFormatException e) {
 
@@ -388,119 +604,93 @@ public class Ingresar extends javax.swing.JFrame {
             return;
         }
 
-        Estudiante estudiante = new Estudiante(rut, nombre, apmaterno, appaterno, gratuidad, edad, 0, nem);
+        nombre_sede = this.jcbox_sedes.getSelectedItem().toString();
+
+        nombre_carrera = this.jcbox_carreras.getSelectedItem().toString();
+
+        estado_matricula = this.jcbox_estado_matricula.getSelectedItem().toString();
+
+        try {
+            valor_matricula = Integer.parseInt(this.jtxt_valor_matricula.getText());
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(this, "El valor debe ser un numero", "Validación", 1);
+            this.jtxt_valor_matricula.requestFocus();
+
+            return;
+
+        }
+
+        String dia = this.jcbox_dia.getSelectedItem().toString();
+        String mes = this.jcbox_mes.getSelectedItem().toString();
+        String anio = this.jcbox_anio.getSelectedItem().toString();
+
+        fechaCadena = dia + "/" + mes + "/" + anio;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            fecha_pago_matricula = formato.parse(fechaCadena);
+
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese fecha en el formato dd/mm/aaaa", "Validación", 1);
+            this.jcbox_dia.requestFocus();
+            return;
+        }
+
+        valor_matricula_pagar = Integer.parseInt(this.jtxt_valor_matricula_pagar.getText());
+        
+        
+        Estudiante estudiante = new Estudiante(rut, nombre, apmaterno, appaterno, gratuidad, edad, 0, nem, estado_matricula, valor_matricula, valor_matricula_pagar, fecha_pago_matricula, nombre_carrera, nombre_sede);
 
         Procedimiento proce = new Procedimiento();
 
         if (proce.ingresarEstudiante(estudiante)) {
-            
-            
+
             int salida = JOptionPane.showConfirmDialog(null, "Datos agregados exitosamente, desea agregar otro estudiante?", "Informacion", JOptionPane.YES_NO_OPTION,
                     JOptionPane.INFORMATION_MESSAGE);
 
             switch (salida) {
                 case 0:
-                    //"Has pulsado Sí";
-               jtxt_nombre.setEnabled(false);
-                jtxt_apmaterno.setEnabled(false);
-                 jtxt_appaterno.setEnabled(false);
-                jtxt_edad.setEnabled(false);
-                jrdb_tiene.setEnabled(false);
-                jrdb_no_tiene.setEnabled(false);
-                     jtxt_nem.setEnabled(false);
-                jbtn_ingresar.setEnabled(false);
-                limpiarDatos();
-                      
-                this.jtxt_rut.requestFocus();
+                    //0 es SI
+                    jtxt_nombre.setEnabled(false);
+                    jtxt_apmaterno.setEnabled(false);
+                    jtxt_appaterno.setEnabled(false);
+                    jtxt_edad.setEnabled(false);
+                    jrdb_tiene.setEnabled(false);
+                    jrdb_no_tiene.setEnabled(false);
+                    jtxt_nem.setEnabled(false);
+                    jbtn_ingresar.setEnabled(false);
+
+                    jcbox_sedes.setSelectedIndex(-1);
+                    jcbox_sedes.setEnabled(false);
+                    jcbox_carreras.setSelectedIndex(-1);
+                    jcbox_carreras.setEnabled(false);
+                    jtxt_valor_matricula.setEnabled(false);
+                    jcbox_dia.setSelectedIndex(-1);
+                    jcbox_dia.setEnabled(false);
+                    jcbox_mes.setSelectedIndex(-1);
+                    jcbox_mes.setEnabled(false);
+                    jcbox_anio.setSelectedIndex(-1);
+                    jcbox_anio.setEnabled(false);
+                    jcbox_estado_matricula.setSelectedIndex(-1);
+                    jcbox_estado_matricula.setEnabled(false);
+                    jtxt_valor_matricula_pagar.setEnabled(false);
+                    jtxt_valor_matricula_pagar.setEditable(false);
+
+                    limpiarDatos();
+
+                    this.jtxt_rut.requestFocus();
                     break;
                 case 1:
-                    //"Has pulsado No";
-                    
+                    //1 es NO
+
                     dispose();
             }
-            
-            
-           // JOptionPane.showMessageDialog(this, "Se agregaron los datos del estudiante", "Aviso", 1);
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
         } else {
             JOptionPane.showMessageDialog(this, "No se agregaron los datos del estudiante", "Aviso", 1);
         }
-
-        //if (this.jrdb_cta_cte.isSelected() || this.jrdb_cta_ahorro.isSelected()) {
-        //String titulo,autor,dia,mes,ano,fechaStr;
-//        Date fecha;
-//        int precio;
-//        boolean disponible;
-//        
-//        titulo = this.jtxt_titulo.getText();
-//        if (titulo.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Ingrese título", "Validación",1);
-//            this.jtxt_titulo.requestFocus();
-//            return;
-//        }
-//        
-//        autor = this.jtxt_autor.getText();
-//        if (autor.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Ingrese autor", "Validación",1);
-//            this.jtxt_autor.requestFocus();
-//            return;
-//        }
-//        
-//        dia = this.jtxt_dia.getText();
-//        mes = this.jtxt_mes.getText();
-//        ano = this.jtxt_ano.getText();
-//        
-//        if (dia.isEmpty() || mes.isEmpty() || ano.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Ingrese fecha", "Validación",1);
-//            this.jtxt_dia.requestFocus();
-//            return;
-//        }
-//        
-//        fechaStr = dia+"/"+mes+"/"+ano;
-//        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-//        
-//        try {
-//            fecha = formato.parse(fechaStr);
-//        } catch (ParseException e) {
-//            JOptionPane.showMessageDialog(this, "Ingrese fecha en el formato dd/mm/aaaa", "Validación",1);
-//            this.jtxt_dia.requestFocus();
-//            return;
-//        }
-//        
-//        try {
-//            precio = Integer.parseInt(this.jtxt_precio.getText());
-//        } catch (NumberFormatException e) {
-//            
-//            JOptionPane.showMessageDialog(this, "El precio debe ser numérico", "Validación",1);
-//            this.jtxt_precio.requestFocus();
-//            return;
-//        }
-//        
-//        disponible = this.jchk_disponible.isSelected();
-//        
-//        Libro libro = new Libro(0, titulo, autor, fecha, precio, disponible);
-//        
-//        Registro reg = new Registro();
-//        
-//        if (reg.agregar(libro)) {
-//            JOptionPane.showMessageDialog(this, "Se agrego el libro", "Aviso",1);
-//            
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(this, "No se agrego el libro", "Aviso",1);
-//        }
 
     }//GEN-LAST:event_jbtn_ingresarActionPerformed
 
@@ -509,8 +699,8 @@ public class Ingresar extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_volverActionPerformed
 
     private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
-    limpiarDatos();   
-    jtxt_nombre.setEnabled(false);
+        limpiarDatos();
+        jtxt_nombre.setEnabled(false);
         jtxt_apmaterno.setEnabled(false);
         jtxt_appaterno.setEnabled(false);
         jtxt_edad.setEnabled(false);
@@ -519,10 +709,117 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem.setEnabled(false);
         jbtn_ingresar.setEnabled(false);
         jbtn_limpiar.setEnabled(false);
-    
-    // TODO add your handling code here:
+        jcbox_sedes.setSelectedIndex(-1);
+        jcbox_carreras.setSelectedIndex(-1);
+        jtxt_valor_matricula.setEnabled(false);
+        jcbox_dia.setSelectedIndex(-1);
+        jcbox_mes.setSelectedIndex(-1);
+        jcbox_anio.setSelectedIndex(-1);
+        jcbox_estado_matricula.setSelectedIndex(-1);
+        jtxt_valor_matricula_pagar.setEnabled(false);
+         jbtn_verificar_nem.setEnabled(false);
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
+    private void jtxt_appaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_appaternoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_appaternoActionPerformed
+
+    private void jcbox_sedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbox_sedesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbox_sedesActionPerformed
+
+    private void jtxt_valor_matriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_valor_matriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_valor_matriculaActionPerformed
+
+    private void jtxt_nemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nemActionPerformed
+    
+
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jtxt_nemActionPerformed
+
+    private void jbtn_verificar_nemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_verificar_nemActionPerformed
+     
+        calcularDescuento();
+        
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_verificar_nemActionPerformed
+
+    private void jtxt_valor_matricula_pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_valor_matricula_pagarActionPerformed
+            // jtxt_total_matricula.setText();      
+             
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_valor_matricula_pagarActionPerformed
+
+    private void jcbox_estado_matriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbox_estado_matriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbox_estado_matriculaActionPerformed
+
+    private void jrdb_tieneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrdb_tieneActionPerformed
+     if (this.jrdb_tiene.isSelected()){
+                    jbtn_verificar_nem.setEnabled(false);
+                    jbtn_ingresar.setEnabled(true);
+                    
+                     jtxt_valor_matricula_pagar.setText(String.valueOf(0));
+            
+            JOptionPane.showMessageDialog(this, "El estudiante no paga Matricula", "Aviso", 1);
+                    
+                    
+                    
+                }   // TODO add your handling code here:
+    }//GEN-LAST:event_jrdb_tieneActionPerformed
+
+    private void jrdb_no_tieneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrdb_no_tieneActionPerformed
+       if (this.jrdb_no_tiene.isSelected()){
+                    jbtn_verificar_nem.setEnabled(true);
+                    
+                } // TODO add your handling code here:
+    }//GEN-LAST:event_jrdb_no_tieneActionPerformed
+
+    private int calcularDescuento(){
+   Double nem = Double.parseDouble(this.jtxt_nem.getText());
+    int valor_matricula = Integer.parseInt(this.jtxt_valor_matricula.getText());
+    int valor_matricula_pagar=0;
+        if (nem>= 6.0 && nem <= 7.0 ){
+            valor_matricula_pagar = (int) (valor_matricula-(valor_matricula*0.30));
+         
+              jtxt_valor_matricula_pagar.setText(String.valueOf(valor_matricula_pagar));
+            
+            JOptionPane.showMessageDialog(this, "Califica para descuento Matrícula (30%)", "Aviso", 1);
+            jbtn_ingresar.setEnabled(true);
+            return valor_matricula_pagar;
+   
+        }
+        else{
+            if(nem < 4.0 || nem > 7.0 ){
+             JOptionPane.showMessageDialog(this, "Nota no válida", "Aviso", 1); 
+             this.jtxt_valor_matricula_pagar.setText("");
+              this.jtxt_nem.requestFocus(); 
+              return valor_matricula;
+            }   
+                
+            else{       
+                
+             JOptionPane.showMessageDialog(this, "No califica para descuento Matrícula (30%)", "Aviso", 1);
+             jtxt_valor_matricula_pagar.setText(String.valueOf(valor_matricula));
+                 jbtn_ingresar.setEnabled(true);
+        return valor_matricula;
+            }
+           
+        
+        
+        }
+        
+        
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -562,6 +859,12 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -572,10 +875,19 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton jbtn_ingresar;
     private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JButton jbtn_verificar;
+    private javax.swing.JButton jbtn_verificar_nem;
     private javax.swing.JButton jbtn_volver;
+    private javax.swing.JComboBox<String> jcbox_anio;
+    private javax.swing.JComboBox<String> jcbox_carreras;
+    private javax.swing.JComboBox<String> jcbox_dia;
+    private javax.swing.JComboBox<String> jcbox_estado_matricula;
+    private javax.swing.JComboBox<String> jcbox_mes;
+    private javax.swing.JComboBox<String> jcbox_sedes;
     private javax.swing.JRadioButton jrdb_no_tiene;
     private javax.swing.JRadioButton jrdb_tiene;
     private javax.swing.JTextField jtxt_apmaterno;
@@ -584,5 +896,7 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_nem;
     private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_rut;
+    private javax.swing.JTextField jtxt_valor_matricula;
+    private javax.swing.JTextField jtxt_valor_matricula_pagar;
     // End of variables declaration//GEN-END:variables
 }
