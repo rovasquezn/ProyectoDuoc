@@ -37,8 +37,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar4 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_ingresar = new javax.swing.JMenuItem();
@@ -46,8 +46,10 @@ public class Menu extends javax.swing.JFrame {
         jmi_eliminar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmi_buscar_estudiante = new javax.swing.JMenuItem();
-        jMenu10 = new javax.swing.JMenu();
+        jmi_mostrar_todo = new javax.swing.JMenu();
         jmi_mostrar_todos = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jmi_salir = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -69,11 +71,15 @@ public class Menu extends javax.swing.JFrame {
         jMenu9.setText("Edit");
         jMenuBar4.add(jMenu9);
 
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu");
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e5c86e56.662261091529555429821.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo_menu.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 850, 610));
 
         jMenu1.setText("Opciones");
 
@@ -115,7 +121,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu10.setText("Listar");
+        jmi_mostrar_todo.setText("Listar");
 
         jmi_mostrar_todos.setText("Mostrar Todo");
         jmi_mostrar_todos.addActionListener(new java.awt.event.ActionListener() {
@@ -123,35 +129,23 @@ public class Menu extends javax.swing.JFrame {
                 jmi_mostrar_todosActionPerformed(evt);
             }
         });
-        jMenu10.add(jmi_mostrar_todos);
+        jmi_mostrar_todo.add(jmi_mostrar_todos);
 
-        jMenuBar1.add(jMenu10);
+        jMenuBar1.add(jmi_mostrar_todo);
+
+        jMenu11.setText("Salir");
+
+        jmi_salir.setText("Salir");
+        jmi_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_salirActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jmi_salir);
+
+        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jLabel1)))
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addGap(68, 68, 68))
-        );
 
         pack();
         setLocationRelativeTo(null);
@@ -178,6 +172,14 @@ public class Menu extends javax.swing.JFrame {
         new Listar().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jmi_mostrar_todosActionPerformed
+
+    private void jmi_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_salirActionPerformed
+     
+        dispose();
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jmi_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,10 +217,9 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -231,10 +232,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jmi_buscar_estudiante;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_ingresar;
     private javax.swing.JMenuItem jmi_modificar;
+    private javax.swing.JMenu jmi_mostrar_todo;
     private javax.swing.JMenuItem jmi_mostrar_todos;
+    private javax.swing.JMenuItem jmi_salir;
     // End of variables declaration//GEN-END:variables
 }
