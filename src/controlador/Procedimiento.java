@@ -122,13 +122,35 @@ public class Procedimiento {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al eliminar el estudiante - Clase Prodecimiento" + e.getMessage());
+            System.out.println("Error en SQL al eliminar el estudiante - Clase Procedimiento" + e.getMessage());
             return false;
         }
     }
 
+      public boolean eliminarEstudiantePorRut (String rut) {
+
+        try {
+
+           Conexion conect = new Conexion();
+           Connection con = conect.obtenerConexion();
+
+            String query = "DELETE FROM estudiante WHERE rut=?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, rut);
+
+            stmt.executeUpdate();
+            stmt.close();
+            con.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Error en SQL al eliminar el estudiante - Clase Procedimiento" + e.getMessage());
+            return false;
+        }
+    }
      
-     public Estudiante buscarEstudiantePorId(int id) {
+      public Estudiante buscarEstudiantePorId(int id) {
 
         Estudiante estudiante = new Estudiante();
        
