@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_ingresar = new javax.swing.JMenuItem();
@@ -72,7 +73,7 @@ public class Menu extends javax.swing.JFrame {
         setTitle("Menu");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/vista/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e5c86e56.662261091529555429821.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/kisspng-duoc-uc-logo-concepcin-central-academy-of-fine-a-duoc-5b2b29e5c86e56.662261091529555429821.png"))); // NOI18N
 
         jMenu1.setText("Opciones");
 
@@ -133,14 +134,21 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(jLabel2)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel1)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(352, Short.MAX_VALUE)
+                .addContainerGap(304, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel2)
                 .addGap(68, 68, 68))
         );
@@ -207,6 +215,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;

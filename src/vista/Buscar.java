@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.Procedimiento;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -22,17 +23,11 @@ public class Buscar extends javax.swing.JFrame {
      */
     public Buscar() {
         initComponents();
-        
-        
-        
+
         jtxt_rut.setEnabled(false);
         jtxt_id.setEnabled(false);
     }
 
-       
-       
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +38,7 @@ public class Buscar extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jToolBar1 = new javax.swing.JToolBar();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jrb_buscar_por_rut = new javax.swing.JRadioButton();
@@ -51,8 +47,6 @@ public class Buscar extends javax.swing.JFrame {
         jtbl_datos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbl_sede = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jtbl_pago_mensualidad = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtbl_pago_matricula = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -62,13 +56,20 @@ public class Buscar extends javax.swing.JFrame {
         jbtn_buscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
+        jbtn_limpiar = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/vista/logo2.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo2.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Buscar Estudiante");
 
         buttonGroup1.add(jrb_buscar_por_rut);
@@ -87,83 +88,86 @@ public class Buscar extends javax.swing.JFrame {
             }
         });
 
+        jtbl_datos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         jtbl_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "RUT", "Nombre", "Appellido Paterno", "Apellido Materno", "Edad", "NEM", "Gratuidad"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtbl_datos.getTableHeader().setResizingAllowed(false);
+        jtbl_datos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtbl_datos);
         if (jtbl_datos.getColumnModel().getColumnCount() > 0) {
             jtbl_datos.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jtbl_datos.getColumnModel().getColumn(1).setPreferredWidth(60);
-            jtbl_datos.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jtbl_datos.getColumnModel().getColumn(3).setPreferredWidth(110);
-            jtbl_datos.getColumnModel().getColumn(4).setPreferredWidth(120);
-            jtbl_datos.getColumnModel().getColumn(5).setPreferredWidth(2);
-            jtbl_datos.getColumnModel().getColumn(6).setPreferredWidth(10);
-            jtbl_datos.getColumnModel().getColumn(7).setPreferredWidth(20);
+            jtbl_datos.getColumnModel().getColumn(5).setPreferredWidth(20);
+            jtbl_datos.getColumnModel().getColumn(6).setPreferredWidth(20);
         }
 
+        jtbl_sede = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         jtbl_sede.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Sede", "Nombre Carrera"
             }
         ));
+        jtbl_sede.getTableHeader().setResizingAllowed(false);
+        jtbl_sede.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtbl_sede);
         if (jtbl_sede.getColumnModel().getColumnCount() > 0) {
             jtbl_sede.getColumnModel().getColumn(0).setPreferredWidth(90);
             jtbl_sede.getColumnModel().getColumn(1).setPreferredWidth(100);
         }
 
-        jtbl_pago_mensualidad.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Valor Mensualidad", "Estado Mensualidad", "Forma Pago Mensualidad", "Fecha de pago"
+        jtbl_pago_matricula = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
             }
-        ));
-        jScrollPane3.setViewportView(jtbl_pago_mensualidad);
-        if (jtbl_pago_mensualidad.getColumnModel().getColumnCount() > 0) {
-            jtbl_pago_mensualidad.getColumnModel().getColumn(0).setPreferredWidth(90);
-            jtbl_pago_mensualidad.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jtbl_pago_mensualidad.getColumnModel().getColumn(2).setPreferredWidth(120);
-            jtbl_pago_mensualidad.getColumnModel().getColumn(3).setPreferredWidth(100);
-        }
-
+        };
         jtbl_pago_matricula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Valor Matricula", "Estado Matricula", "Forma Pago Matricula", "Fecha de Pago"
+                "Valor Matricula", "Estado Matricula", "Fecha de Pago", "Valor Pagado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtbl_pago_matricula.getTableHeader().setResizingAllowed(false);
+        jtbl_pago_matricula.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(jtbl_pago_matricula);
         if (jtbl_pago_matricula.getColumnModel().getColumnCount() > 0) {
             jtbl_pago_matricula.getColumnModel().getColumn(0).setPreferredWidth(90);
             jtbl_pago_matricula.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jtbl_pago_matricula.getColumnModel().getColumn(2).setPreferredWidth(120);
-            jtbl_pago_matricula.getColumnModel().getColumn(3).setPreferredWidth(110);
-            jtbl_pago_matricula.getColumnModel().getColumn(3).setHeaderValue("Estado mensualidad");
+            jtbl_pago_matricula.getColumnModel().getColumn(2).setPreferredWidth(110);
+            jtbl_pago_matricula.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jLabel3.setText("Ingrese RUT");
@@ -176,7 +180,7 @@ public class Buscar extends javax.swing.JFrame {
 
         jLabel4.setText("Ingrese ID");
 
-        jbtn_buscar.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/icons8-búsqueda-de-propiedad-48.png")); // NOI18N
+        jbtn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/icons8-búsqueda-de-propiedad-48.png"))); // NOI18N
         jbtn_buscar.setText("Buscar");
         jbtn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +188,7 @@ public class Buscar extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/rodrigo/Documents/DUOCUC2021/2DO SEMESTRE/DISEÑO DE SOFTWARE DE ESCRITORIO/EJERCICIOS JAVA/BD_Proyecto/src/volver (2).png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/volver (2).png"))); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,102 +196,146 @@ public class Buscar extends javax.swing.JFrame {
             }
         });
 
+        jSeparator1.setBackground(new java.awt.Color(0, 102, 204));
         jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setText("Limpiar");
+        jbtn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/limpieza-de-datos.png"))); // NOI18N
+        jbtn_limpiar.setText("Limpiar");
+        jbtn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_limpiarActionPerformed(evt);
+            }
+        });
+
+        jSeparator2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel5.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel5.setText("SEDE");
+
+        jLabel6.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel6.setText("DATOS PERSONALES");
+
+        jLabel7.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel7.setText("MATRÍCULA");
+
+        jSeparator3.setForeground(new java.awt.Color(0, 102, 204));
+        jSeparator3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(108, 108, 108))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(341, 341, 341)
-                                .addComponent(jLabel2))
+                                .addComponent(jLabel2)
+                                .addGap(183, 183, 183)
+                                .addComponent(jLabel1)
+                                .addGap(23, 23, 23))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jrb_buscar_por_rut)
-                                        .addGap(54, 54, 54))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(63, 63, 63)
+                                        .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jrb_buscar_por_rut))
+                                .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jrb_buscar_por_id)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtxt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jbtn_buscar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton2))
-                                    .addComponent(jrb_buscar_por_id))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton1))
-                        .addGap(27, 27, 27))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jtxt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(28, 28, 28)
+                                .addComponent(jbtn_buscar)
+                                .addGap(54, 54, 54)
+                                .addComponent(jbtn_limpiar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))
+                        .addGap(34, 34, 34))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(180, 180, 180))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(120, 120, 120)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1)
-                        .addGap(91, 91, 91))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtn_limpiar)
+                        .addComponent(jbtn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jrb_buscar_por_rut)
-                                .addGap(11, 11, 11))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jrb_buscar_por_id)
-                                .addGap(18, 18, 18)))
+                        .addComponent(jrb_buscar_por_rut)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jrb_buscar_por_id)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jtxt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGap(23, 23, 23)))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -295,13 +343,11 @@ public class Buscar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jrb_buscar_por_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_buscar_por_rutActionPerformed
-        
-        if (this.jrb_buscar_por_rut.isSelected()){
+
+        if (this.jrb_buscar_por_rut.isSelected()) {
             jtxt_rut.setEnabled(true);
-             jtxt_id.setEnabled(false);
+            jtxt_id.setEnabled(false);
         }
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jrb_buscar_por_rutActionPerformed
@@ -311,151 +357,210 @@ public class Buscar extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_rutActionPerformed
 
     private void jrb_buscar_por_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_buscar_por_idActionPerformed
-       if (this.jrb_buscar_por_id.isSelected()){
+        if (this.jrb_buscar_por_id.isSelected()) {
             jtxt_id.setEnabled(true);
             jtxt_rut.setEnabled(false);
-        
-       }
+
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jrb_buscar_por_idActionPerformed
 
+    //private void 
+
     private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
-        String rut;
-         
-        rut = this.jtxt_rut.getText();
-        if (rut.isEmpty()){
+        if (this.jrb_buscar_por_rut.isSelected()) {
+            String rut;
+            rut = this.jtxt_rut.getText();
 
-         
-            JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
-            this.jtxt_rut.requestFocus();
-            return;
-        } else {  
-         String nombre, appaterno, apmaterno, gratuidad;
-         int edad, id;
-         double nem;
+            if (rut.isEmpty()) {
 
-        Procedimiento proce = new Procedimiento();
-        DefaultTableModel tablaDato = (DefaultTableModel) this.jtbl_datos.getModel();
-        DefaultTableModel tablaSede = (DefaultTableModel) this.jtbl_sede.getModel();
-        DefaultTableModel tablaMatricula = (DefaultTableModel) this.jtbl_pago_matricula.getModel();
-        DefaultTableModel tablaMensualidad = (DefaultTableModel) this.jtbl_pago_mensualidad.getModel();
- 
-        rut = this.jtxt_rut.getText();
+                JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
+                this.jtxt_rut.requestFocus();
+                return;
+            } else {
 
-         tablaDato.setRowCount(0);
+                //si el estudiante no existe
+                boolean flag;
+                Procedimiento proce = new Procedimiento();
+                proce.buscarEstudiantePorRut(rut);
+                flag = proce.buscarEstudiantePorRutBandera(rut);
+                if (flag == false) {
+                    JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                    this.jtxt_rut.setText("");
+                    this.jtxt_rut.requestFocus();
+                } 
+                //si el estudiante exixte
+                else {
+                    String nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
+                    int edad, id, valor_matricula, valor_matricula_pagar;
+                    double nem;
+                    Date fecha_pago_matricula;
 
-         boolean flag;
-           // Procedimiento proce = new Procedimiento();
-            proce.buscarEstudiantePorRut(rut);
-            flag = proce.buscarEstudiantePorRut(rut);
-            if (flag == true) {
-              Estudiante estudiante = new Estudiante();  
-             rut = estudiante.getRut();
-             nombre = estudiante.getNombre();
-             apmaterno = estudiante.getApmaterno();
-             appaterno = estudiante.getAppaterno();
-                     gratuidad = estudiante.getGratuidad();
-                    
-                     edad = estudiante.getEdad();
-                     
-                     id = estudiante.getId();
-                     nem = estudiante.getNem();
-                     
-               tablaDato.addRow(new Object[]{rut, nombre, apmaterno, appaterno, gratuidad, edad, id, nem});
-//                     
+                    // Procedimiento proce = new Procedimiento();
+                    DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
+                    DefaultTableModel tablaSede = (DefaultTableModel) this.jtbl_sede.getModel();
+                    DefaultTableModel tablaMatricula = (DefaultTableModel) this.jtbl_pago_matricula.getModel();
 
+                    //Objeto
+                    Estudiante estudiante = proce.buscarEstudiantePorRut(rut);
+
+                    id = estudiante.getId();
+                    rut = estudiante.getRut();
+                    nombre = estudiante.getNombre();
+
+                    appaterno = estudiante.getAppaterno();
+                    apmaterno = estudiante.getApmaterno();
+                    edad = estudiante.getEdad();
+                    nem = estudiante.getNem();
+                    gratuidad = estudiante.getGratuidad();
+
+                    //Datos obtenidos de la base de datos se agregan a tabla1
+                    tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad});
+
+                    nombre_sede = estudiante.getNombre_sede();
+                    nombre_carrera = estudiante.getNombre_carrera();
+                    //Datos obtenidos de la base de datos se agregan a tabla2
+                    tablaSede.addRow(new Object[]{nombre_sede, nombre_carrera});
+
+                    valor_matricula = estudiante.getValor_matricula();
+                    estado_matricula = estudiante.getEstado_matricula();
+                    fecha_pago_matricula = estudiante.getFecha_pago_matricula();
+                     valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+                    //Datos obtenidos de la base de datos se agregan a tabla3
+                    tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula,valor_matricula_pagar});
+
+                    jbtn_buscar.setEnabled(false);
+                    jtxt_rut.setText("");
+                }
             }
         }
 
-////             id = libro.getIdLibro();
-////            titulo = libro.getTitulo();
-////            autor = libro.getAutor();
-////            precio = libro.getPrecio();
-////            disponible = libro.isDisponible();
-////            
-////            modelo.addRow(new Object[]{id, titulo, autor, precio, disponible});   
-//                
-//                
-//            }
-//        
-//        
-//         }
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-////        
-//////        if 
-////            Libro libro = reg.buscarPorId(id);
-////            id = libro.getIdLibro();
-////            titulo = libro.getTitulo();
-////            autor = libro.getAutor();
-////            precio = libro.getPrecio();
-////            disponible = libro.isDisponible();
-////            
-////            modelo.addRow(new Object[]{id, titulo, autor, precio, disponible});
-//
-//
-//
-//
-//
-//
-//
-//
-////               (id == 0) {//listar todos
-//////            List<Libro> lista = reg.buscarTodos();
-////            for (Libro libro : lista) {
-////                id = libro.getIdLibro();
-////                titulo = libro.getTitulo();
-////                autor = libro.getAutor();
-////                precio = libro.getPrecio();
-////                disponible = libro.isDisponible();
-////
-////                modelo.addRow(new Object[]{id, titulo, autor, precio, disponible});
-////            }
-//
-////        } else { //listar por id
-////
-////            Libro libro = reg.buscarPorId(id);
-////            id = libro.getIdLibro();
-////            titulo = libro.getTitulo();
-////            autor = libro.getAutor();
-////            precio = libro.getPrecio();
-////            disponible = libro.isDisponible();
-////            
-////            modelo.addRow(new Object[]{id, titulo, autor, precio, disponible});
-////        }
-////            
-////            
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//        }
-//
-//
-//
-//
-//
-//
+        if (this.jrb_buscar_por_id.isSelected()) {
 
+            int id;
 
+            try {
+                id = Integer.parseInt(this.jtxt_id.getText());
+
+            } catch (NumberFormatException e) {
+
+                JOptionPane.showMessageDialog(this, "El id debe ser un numero", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+                return;
+            }
+
+            
+             //si el estudiante no existe
+                boolean flag;
+                Procedimiento proce = new Procedimiento();
+                proce.buscarEstudiantePorId(id);
+                flag = proce.buscarEstudiantePorIdBandera(id);
+                if (flag == false) {
+                    JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                    this.jtxt_id.setText("");
+                    this.jtxt_id.requestFocus();
+                } 
+                
+                //si el estudiante exixte
+
+            else {
+            String rut, nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
+            int edad, valor_matricula, valor_matricula_pagar;
+            double nem;
+            Date fecha_pago_matricula;
+
+            Procedimiento proce2 = new Procedimiento();
+            DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
+            DefaultTableModel tablaSede = (DefaultTableModel) this.jtbl_sede.getModel();
+            DefaultTableModel tablaMatricula = (DefaultTableModel) this.jtbl_pago_matricula.getModel();
+
+            //Objeto
+            Estudiante estudiante = proce2.buscarEstudiantePorId(id);
+
+            id = estudiante.getId();
+            rut = estudiante.getRut();
+            nombre = estudiante.getNombre();
+
+            appaterno = estudiante.getAppaterno();
+            apmaterno = estudiante.getApmaterno();
+            edad = estudiante.getEdad();
+            nem = estudiante.getNem();
+            gratuidad = estudiante.getGratuidad();
+
+            //Datos obtenidos de la base de datos se agregan a tabla1
+            tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad});
+
+            nombre_sede = estudiante.getNombre_sede();
+            nombre_carrera = estudiante.getNombre_carrera();
+            //Datos obtenidos de la base de datos se agregan a tabla2
+            tablaSede.addRow(new Object[]{nombre_sede, nombre_carrera});
+
+            valor_matricula = estudiante.getValor_matricula();
+            estado_matricula = estudiante.getEstado_matricula();
+            fecha_pago_matricula = estudiante.getFecha_pago_matricula();
+            valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+            //Datos obtenidos de la base de datos se agregan a tabla3
+            tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula, valor_matricula_pagar});
+
+            jbtn_buscar.setEnabled(false);
+            jtxt_id.setText("");
+
+             }
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_buscarActionPerformed
 
+    //Limpia la tala 1
+    public void limpiarTablaDatos() {
+        DefaultTableModel temp = (DefaultTableModel) jtbl_datos.getModel();
+        int filas = jtbl_datos.getRowCount();
+
+        for (int a = 0; filas > a; a++) {
+            temp.removeRow(0);
+        }
+    }
+
+    //Limpia la tala 2
+    public void limpiarTablaSede() {
+        DefaultTableModel temp2 = (DefaultTableModel) jtbl_sede.getModel();
+        int filas2 = jtbl_sede.getRowCount();
+
+        for (int a = 0; filas2 > a; a++) {
+            temp2.removeRow(0);
+        }
+    }
+
+    //Limpia la tala 3
+    public void limpiarTablaPagoMatricula() {
+        DefaultTableModel temp3 = (DefaultTableModel) jtbl_pago_matricula.getModel();
+        int filas3 = jtbl_pago_matricula.getRowCount();
+
+        for (int a = 0; filas3 > a; a++) {
+            temp3.removeRow(0);
+        }
+    }
+
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    dispose();        // TODO add your handling code here:
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
+
+        this.jtxt_rut.setText("");
+        this.jtxt_id.setText("");
+
+        limpiarTablaDatos();
+        limpiarTablaSede();
+        limpiarTablaPagoMatricula();
+
+        jbtn_buscar.setEnabled(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -495,22 +600,26 @@ public class Buscar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton jbtn_buscar;
+    private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JRadioButton jrb_buscar_por_id;
     private javax.swing.JRadioButton jrb_buscar_por_rut;
     private javax.swing.JTable jtbl_datos;
     private javax.swing.JTable jtbl_pago_matricula;
-    private javax.swing.JTable jtbl_pago_mensualidad;
     private javax.swing.JTable jtbl_sede;
     private javax.swing.JTextField jtxt_id;
     private javax.swing.JTextField jtxt_rut;
