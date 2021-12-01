@@ -72,7 +72,7 @@ public class Procedimiento {
             
             date = estudiante.getFecha_pago_matricula();
 
-            String query = "UPDATE estudiante set rut=?, nombre=?, apmaterno=?, appaterno=?, gratuidad=?, edad=?, id=?, nem=?, estado_matricula=?, valor_matricula=?, valor_matricula_pagar=?, fecha_pago_matricula=?, nombre_carrera=?, nombre_sede=?   WHERE id =?";
+            String query = "UPDATE estudiante set rut=?, nombre=?, apmaterno=?, appaterno=?, gratuidad=?, edad=?, nem=?, estado_matricula=?, valor_matricula=?, valor_matricula_pagar=?, fecha_pago_matricula=?, nombre_carrera=?, nombre_sede=?   WHERE id =?";
             PreparedStatement stmt = con.prepareStatement(query);
            
             stmt.setString(1, estudiante.getRut());
@@ -81,14 +81,14 @@ public class Procedimiento {
             stmt.setString(4, estudiante.getAppaterno());
             stmt.setString(5, estudiante.getGratuidad());
             stmt.setInt(6, estudiante.getEdad());
-            stmt.setInt(7, estudiante.getId());
-            stmt.setDouble(8, estudiante.getNem());
-            stmt.setString(9, estudiante.getEstado_matricula());
-            stmt.setInt(10, estudiante.getValor_matricula());
-            stmt.setInt(11, estudiante.getValor_matricula_pagar());
-            stmt.setDate(12, new java.sql.Date(date.getTime()));
-            stmt.setString(13, estudiante.getNombre_carrera());
-            stmt.setString(14, estudiante.getNombre_sede());
+            stmt.setDouble(7, estudiante.getNem());
+            stmt.setString(8, estudiante.getEstado_matricula());
+            stmt.setInt(9, estudiante.getValor_matricula());
+            stmt.setInt(10, estudiante.getValor_matricula_pagar());
+            stmt.setDate(11, new java.sql.Date(date.getTime()));
+            stmt.setString(12, estudiante.getNombre_carrera());
+            stmt.setString(13, estudiante.getNombre_sede());
+            stmt.setInt(14, estudiante.getId());
             
 
             stmt.executeUpdate();
