@@ -88,12 +88,12 @@ Procedimiento proc = new Procedimiento();
         jSeparator1.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 754, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 754, 10));
 
         jSeparator2.setBackground(new java.awt.Color(0, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 310, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 520, 310, 10));
 
         jbtn_actualizar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_actualizar.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,10 +104,10 @@ Procedimiento proc = new Procedimiento();
                 jbtn_actualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, -1));
+        jPanel1.add(jbtn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, -1, -1));
 
         jlb_edad.setForeground(new java.awt.Color(0, 0, 0));
         jlb_edad.setText("Edad");
@@ -129,7 +129,7 @@ Procedimiento proc = new Procedimiento();
                 jbtn_volverActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, -1, -1));
+        jPanel1.add(jbtn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, -1, -1));
 
         jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,18 +137,18 @@ Procedimiento proc = new Procedimiento();
             }
         });
         jPanel1.add(jtxt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 119, -1));
-        jPanel1.add(jtxt_gratuidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 171, -1));
+        jPanel1.add(jtxt_gratuidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 160, -1));
 
         jtxt_valor_matricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_valor_matriculaActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_valor_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 131, -1));
+        jPanel1.add(jtxt_valor_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 131, -1));
 
         jlb_nem.setForeground(new java.awt.Color(0, 0, 0));
         jlb_nem.setText("N.E.M");
-        jPanel1.add(jlb_nem, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, -1, -1));
+        jPanel1.add(jlb_nem, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
 
         jlb_rut.setForeground(new java.awt.Color(0, 0, 0));
         jlb_rut.setText("R.U.T");
@@ -157,7 +157,7 @@ Procedimiento proc = new Procedimiento();
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Modificar Datos Estudiante");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
 
         jbtn_buscar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_buscar.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,29 +168,29 @@ Procedimiento proc = new Procedimiento();
                 jbtn_buscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 136, 41));
+        jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 136, 41));
 
         jlb_gratuidad.setForeground(new java.awt.Color(0, 0, 0));
         jlb_gratuidad.setText("Gratuidad");
-        jPanel1.add(jlb_gratuidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 75, -1));
+        jPanel1.add(jlb_gratuidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 75, -1));
 
         jtxt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_idActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 91, -1));
+        jPanel1.add(jtxt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 91, -1));
 
         jtxt_estado_matricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_estado_matriculaActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_estado_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 137, -1));
+        jPanel1.add(jtxt_estado_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 137, -1));
 
         jlb_id.setForeground(new java.awt.Color(0, 0, 0));
         jlb_id.setText("Ingrese ID");
-        jPanel1.add(jlb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 75, 21));
+        jPanel1.add(jlb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 75, 21));
 
         jbtn_limpiar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_limpiar.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,28 +201,28 @@ Procedimiento proc = new Procedimiento();
                 jbtn_limpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, -1, -1));
+        jPanel1.add(jbtn_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
 
         jlb_valor_matricula.setForeground(new java.awt.Color(0, 0, 0));
         jlb_valor_matricula.setText("Valor Matricula");
-        jPanel1.add(jlb_valor_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        jPanel1.add(jlb_valor_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
         jlb_estado_matricula.setForeground(new java.awt.Color(0, 0, 0));
         jlb_estado_matricula.setText("Estado Matricula");
-        jPanel1.add(jlb_estado_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, 22));
+        jPanel1.add(jlb_estado_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, 22));
 
         jtxt_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_nombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 286, -1));
-        jPanel1.add(jtxt_nem, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 70, -1));
+        jPanel1.add(jtxt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 310, -1));
+        jPanel1.add(jtxt_nem, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 70, -1));
 
         jlb_nombre.setForeground(new java.awt.Color(0, 0, 0));
         jlb_nombre.setText("Nombre");
         jPanel1.add(jlb_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 61, 21));
-        jPanel1.add(jtxt_fecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 171, -1));
+        jPanel1.add(jtxt_fecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 180, -1));
 
         jlb_appaterno.setForeground(new java.awt.Color(0, 0, 0));
         jlb_appaterno.setText("Apellido Paterno");
@@ -230,31 +230,31 @@ Procedimiento proc = new Procedimiento();
 
         jlb_fecha_pago.setForeground(new java.awt.Color(0, 0, 0));
         jlb_fecha_pago.setText("Fecha Pago");
-        jPanel1.add(jlb_fecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
+        jPanel1.add(jlb_fecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, -1, -1));
 
         jlb_apmaterno.setForeground(new java.awt.Color(0, 0, 0));
         jlb_apmaterno.setText("Apellido Materno");
         jPanel1.add(jlb_apmaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 124, 21));
-        jPanel1.add(jtxt_valor_matricula_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 137, -1));
+        jPanel1.add(jtxt_valor_matricula_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 130, -1));
 
         jlb_carrera.setForeground(new java.awt.Color(0, 0, 0));
         jlb_carrera.setText("Carrera");
-        jPanel1.add(jlb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 59, 21));
+        jPanel1.add(jlb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 59, 21));
 
         jlb_fecha_pago1.setForeground(new java.awt.Color(0, 0, 0));
         jlb_fecha_pago1.setText("Total Matricula");
-        jPanel1.add(jlb_fecha_pago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, -1));
+        jPanel1.add(jlb_fecha_pago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
 
         jlb_sede.setForeground(new java.awt.Color(0, 0, 0));
         jlb_sede.setText("Sede");
-        jPanel1.add(jlb_sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 44, 21));
+        jPanel1.add(jlb_sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 44, 21));
 
         jtxt_appaterno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_appaternoActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_appaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 287, -1));
+        jPanel1.add(jtxt_appaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 260, -1));
 
         jtxt_apmaterno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,14 +268,14 @@ Procedimiento proc = new Procedimiento();
                 jtxt_sedeActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 350, -1));
+        jPanel1.add(jtxt_sede, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 350, -1));
 
         jtxt_carrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_carreraActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 290, -1));
+        jPanel1.add(jtxt_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 290, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 610));

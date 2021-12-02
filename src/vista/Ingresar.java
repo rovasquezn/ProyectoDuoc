@@ -95,7 +95,7 @@ public class Ingresar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtxt_rut = new javax.swing.JTextField();
+        jtxt_rut_1 = new javax.swing.JTextField();
         jbtn_verificar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -105,9 +105,10 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        jft_rut = new javax.swing.JFormattedTextField();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -286,12 +287,12 @@ public class Ingresar extends javax.swing.JFrame {
         jLabel4.setText("Ingrese R.U.T.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_rut_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_rutActionPerformed(evt);
+                jtxt_rut_1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 116, -1));
+        jPanel1.add(jtxt_rut_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 116, -1));
 
         jbtn_verificar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_verificar.setForeground(new java.awt.Color(255, 255, 255));
@@ -346,18 +347,23 @@ public class Ingresar extends javax.swing.JFrame {
         jSeparator3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 440, 10));
 
+        jft_rut.setText("cxscdsdwsdsx");
+        jPanel1.add(jft_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 40));
+
+        jFormattedTextField2.setText("jFormattedTextField2");
+        jPanel1.add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+
+        jFormattedTextField1.setText("jFormattedTextField1");
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo.png"))); // NOI18N
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
-
-        jSeparator5.setBackground(new java.awt.Color(0, 204, 204));
-        jSeparator5.setForeground(new java.awt.Color(0, 102, 204));
-        jSeparator5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 310, 10));
-
-        jSeparator6.setBackground(new java.awt.Color(0, 204, 204));
-        jSeparator6.setForeground(new java.awt.Color(0, 102, 204));
-        jSeparator6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, 310, 100));
+        jLabel14.setText("ssss");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -367,7 +373,7 @@ public class Ingresar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -375,7 +381,7 @@ public class Ingresar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarDatos() {
-        this.jtxt_rut.setText("");
+        this.jtxt_rut_1.setText("");
         this.jtxt_nombre.setText("");
         this.jtxt_apmaterno.setText("");
         this.jtxt_appaterno.setText("");
@@ -405,19 +411,19 @@ public class Ingresar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_nombreActionPerformed
 
-    private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
+    private void jtxt_rut_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rut_1ActionPerformed
 
-    }//GEN-LAST:event_jtxt_rutActionPerformed
+    }//GEN-LAST:event_jtxt_rut_1ActionPerformed
 
     private void jbtn_verificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_verificarActionPerformed
 
         String rut;
 
-        rut = this.jtxt_rut.getText();
+        rut = this.jtxt_rut_1.getText();
 
         if (rut.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
-            this.jtxt_rut.requestFocus();
+            this.jtxt_rut_1.requestFocus();
             return;
         } else {
 
@@ -476,7 +482,7 @@ public class Ingresar extends javax.swing.JFrame {
         Date fecha_pago_matricula;
         String nombre_carrera, nombre_sede, fechaCadena;
 
-        rut = this.jtxt_rut.getText();
+        rut = this.jtxt_rut_1.getText();
 
         nombre = this.jtxt_nombre.getText();
         if (nombre.isEmpty()) {
@@ -611,7 +617,7 @@ public class Ingresar extends javax.swing.JFrame {
 
                     limpiarDatos();
 
-                    this.jtxt_rut.requestFocus();
+                    this.jtxt_rut_1.requestFocus();
                     break;
                 case 1:
                     //1 es NO
@@ -712,6 +718,10 @@ public class Ingresar extends javax.swing.JFrame {
                 } // TODO add your handling code here:
     }//GEN-LAST:event_jrdb_no_tieneActionPerformed
 
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
     private int calcularDescuento(){
    Double nem = Double.parseDouble(this.jtxt_nem.getText());
     int valor_matricula = Integer.parseInt(this.jtxt_valor_matricula.getText());
@@ -788,6 +798,8 @@ public class Ingresar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -810,8 +822,6 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JButton jbtn_ingresar;
     private javax.swing.JButton jbtn_limpiar;
     private javax.swing.JButton jbtn_verificar;
@@ -823,6 +833,7 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbox_estado_matricula;
     private javax.swing.JComboBox<String> jcbox_mes;
     private javax.swing.JComboBox<String> jcbox_sedes;
+    private javax.swing.JFormattedTextField jft_rut;
     private javax.swing.JRadioButton jrdb_no_tiene;
     private javax.swing.JRadioButton jrdb_tiene;
     private javax.swing.JTextField jtxt_apmaterno;
@@ -830,7 +841,7 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_edad;
     private javax.swing.JTextField jtxt_nem;
     private javax.swing.JTextField jtxt_nombre;
-    private javax.swing.JTextField jtxt_rut;
+    private javax.swing.JTextField jtxt_rut_1;
     private javax.swing.JTextField jtxt_valor_matricula;
     private javax.swing.JTextField jtxt_valor_matricula_pagar;
     // End of variables declaration//GEN-END:variables
