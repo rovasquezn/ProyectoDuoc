@@ -32,6 +32,8 @@ Procedimiento proc = new Procedimiento();
         this.jtxt_gratuidad.setEditable(false);
         this.jtxt_nem.setEditable(false);
         this.jtxt_rut.setEditable(false);
+        jbtn_modificar.setEnabled(false);
+        jbtn_limpiar.setEnabled(false);
         
     }
 
@@ -43,7 +45,7 @@ Procedimiento proc = new Procedimiento();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jbtn_actualizar = new javax.swing.JButton();
+        jbtn_modificar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jlb_edad = new javax.swing.JLabel();
         jtxt_edad = new javax.swing.JTextField();
@@ -95,16 +97,16 @@ Procedimiento proc = new Procedimiento();
         jSeparator2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 520, 310, 10));
 
-        jbtn_actualizar.setBackground(new java.awt.Color(51, 51, 51));
-        jbtn_actualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cheque.png"))); // NOI18N
-        jbtn_actualizar.setText("Modificar Datos");
-        jbtn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_modificar.setBackground(new java.awt.Color(51, 51, 51));
+        jbtn_modificar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cheque.png"))); // NOI18N
+        jbtn_modificar.setText("Modificar Datos");
+        jbtn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_actualizarActionPerformed(evt);
+                jbtn_modificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, -1, -1));
+        jPanel1.add(jbtn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo2.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, -1, -1));
@@ -361,10 +363,40 @@ Procedimiento proc = new Procedimiento();
     }//GEN-LAST:event_jtxt_nombreActionPerformed
 
     private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
-        this.jtxt_id.setEditable(true);
+       
+        int id;
         
+        
+        
+        this.jtxt_id.setEditable(true);
+        try{
+           
 
-        int id = Integer.parseInt(this.jtxt_id.getText());
+        id = Integer.parseInt(this.jtxt_id.getText());
+        }catch (NumberFormatException e){
+            
+            
+          JOptionPane.showMessageDialog(this, "El id debe ser un numero", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+                return;
+            }   
+        
+         //si el estudiante no existe
+            boolean flag;
+              Procedimiento proce = new Procedimiento();
+            proce.buscarEstudiantePorId(id);
+            flag = proce.buscarEstudiantePorIdBandera(id);
+            if (flag == false) {
+                JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+            } //si el estudiante exixte
+            else {
+            
+                jbtn_modificar.setEnabled(true);
+        jbtn_limpiar.setEnabled(true);
+        
         
         Estudiante estudiante = proc.buscarEstudiantePorId(id);
         
@@ -394,6 +426,7 @@ Procedimiento proc = new Procedimiento();
         this.jtxt_rut.setText(rut);
         this.jtxt_estado_matricula.setText(estado_matricula);
         this.jtxt_fecha_pago.setText("" + fecha_pago);
+    // this.jtxt_fecha_pago.setText(fecha_pago);
         this.jtxt_sede.setText(sede);
         
         this.jtxt_appaterno.setEditable(true);
@@ -410,7 +443,7 @@ Procedimiento proc = new Procedimiento();
         this.jtxt_nem.setEditable(true);
         this.jtxt_rut.setEditable(true);
         
-        
+            }
         
     }//GEN-LAST:event_jbtn_buscarActionPerformed
 
@@ -430,7 +463,7 @@ Procedimiento proc = new Procedimiento();
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_carreraActionPerformed
 
-    private void jbtn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_actualizarActionPerformed
+    private void jbtn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modificarActionPerformed
         
     String rut, nombre, apmaterno, appaterno, gratuidad, nombre_carrera, nombre_sede, estado_matricula;
     int edad, id, valor_matricula, valor_matricula_pagar;
@@ -453,6 +486,7 @@ Procedimiento proc = new Procedimiento();
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     
     try{
+        
     fecha_pago_matricula = formato.parse(this.jtxt_fecha_pago.getText());
     
     } catch (ParseException e) {
@@ -477,7 +511,7 @@ Procedimiento proc = new Procedimiento();
     limpiarDatos();
     
    
-    }//GEN-LAST:event_jbtn_actualizarActionPerformed
+    }//GEN-LAST:event_jbtn_modificarActionPerformed
 
     private void jtxt_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_edadActionPerformed
         // TODO add your handling code here:
@@ -542,9 +576,9 @@ dispose();        // TODO add your handling code here:
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton jbtn_actualizar;
     private javax.swing.JButton jbtn_buscar;
     private javax.swing.JButton jbtn_limpiar;
+    private javax.swing.JButton jbtn_modificar;
     private javax.swing.JButton jbtn_volver;
     private javax.swing.JLabel jlb_apmaterno;
     private javax.swing.JLabel jlb_appaterno;

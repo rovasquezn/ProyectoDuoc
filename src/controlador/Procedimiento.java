@@ -104,7 +104,7 @@ public class Procedimiento {
 
     }
     
-     public boolean eliminarEstudiante (int id) {
+     public boolean eliminarEstudiantePorId (int id) {
 
         try {
 
@@ -122,7 +122,7 @@ public class Procedimiento {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al eliminar el estudiante - Clase Procedimiento" + e.getMessage());
+            System.out.println("Error en SQL al eliminar el estudiante por ID - Clase Procedimiento" + e.getMessage());
             return false;
         }
     }
@@ -145,7 +145,7 @@ public class Procedimiento {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Error en SQL al eliminar el estudiante - Clase Procedimiento" + e.getMessage());
+            System.out.println("Error en SQL al eliminar el estudiante por rut - Clase Procedimiento" + e.getMessage());
             return false;
         }
     }

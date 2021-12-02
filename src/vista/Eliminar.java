@@ -1,15 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista;
 
 import controlador.Procedimiento;
 import java.util.Date;
-import java.util.List;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Estudiante;
 
 /**
  *
- * @author navar rodrigo Vazques Franco Navarrete Cristian Ubilla..
+ * @author rodrigo
  */
 public class Eliminar extends javax.swing.JFrame {
 
@@ -18,7 +23,8 @@ public class Eliminar extends javax.swing.JFrame {
      */
     public Eliminar() {
         initComponents();
-        setLocationRelativeTo(null);
+        jtxt_rut.setEnabled(false);
+        jtxt_id.setEnabled(false);
     }
 
     /**
@@ -30,56 +36,81 @@ public class Eliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jtxt_idbuscar = new javax.swing.JTextField();
-        jbtn_Buscar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_Datos = new javax.swing.JTable();
-        jtbn_Eliminar = new javax.swing.JButton();
-        jtbn_volver = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jbtn_rut = new javax.swing.JRadioButton();
-        jbtn_id = new javax.swing.JRadioButton();
-        jtxt_rut = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jbt_volver = new javax.swing.JButton();
+        jbtn_buscar = new javax.swing.JButton();
+        jrb_id = new javax.swing.JRadioButton();
+        jrb_rut = new javax.swing.JRadioButton();
+        jtxt_id = new javax.swing.JTextField();
+        jtxt_rut = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_datos = new javax.swing.JTable();
+        jbtn_eliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("                 Eliminar Datos");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/descargalogoduoc.png"))); // NOI18N
-
-        jtxt_idbuscar.addActionListener(new java.awt.event.ActionListener() {
+        jbt_volver.setBackground(new java.awt.Color(51, 51, 51));
+        jbt_volver.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/volver (2).png"))); // NOI18N
+        jbt_volver.setText("Volver");
+        jbt_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_idbuscarActionPerformed(evt);
+                jbt_volverActionPerformed(evt);
             }
         });
+        jPanel1.add(jbt_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, -1, -1));
 
-        jbtn_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/buscar.png"))); // NOI18N
-        jbtn_Buscar.setText("Buscar");
-        jbtn_Buscar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_buscar.setBackground(new java.awt.Color(51, 51, 51));
+        jbtn_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/icons8-búsqueda-de-propiedad-48.png"))); // NOI18N
+        jbtn_buscar.setText("Buscar");
+        jbtn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_BuscarActionPerformed(evt);
+                jbtn_buscarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, -1, -1));
 
-        jLabel1.setText("Ingrese ID :");
+        buttonGroup1.add(jrb_id);
+        jrb_id.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_id.setText("Buscar por ID");
+        jrb_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb_idActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jrb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
-        jTbl_Datos.setModel(new javax.swing.table.DefaultTableModel(
+        buttonGroup1.add(jrb_rut);
+        jrb_rut.setForeground(new java.awt.Color(0, 0, 0));
+        jrb_rut.setText("Buscar por R.U.T.");
+        jrb_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb_rutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jrb_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
+        jPanel1.add(jtxt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 180, -1));
+
+        jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_rutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtxt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, 160, -1));
+
+        jtbl_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "RUT", "Nombre", "Apellido paterno", "Apellido materno", "Nem", "Gratuidad", "Edad", "Nombre carrera", "Nombre Sede", "Estado Matricula", "Valor Matricula", "Fecha pago matricula", "Valor_matricula_pagar"
+                "ID", "R.U.T", "Nombre", "Apellido Paterno", "Apellido Materno", "Edad", "N.E.M", "Gratuidad", "Carrera", "Sede", "Estado Matricula", "Fecha Pago", "Matricula", "Valor Pagado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -90,158 +121,177 @@ public class Eliminar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTbl_Datos);
-        if (jTbl_Datos.getColumnModel().getColumnCount() > 0) {
-            jTbl_Datos.getColumnModel().getColumn(0).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(1).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(2).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(3).setPreferredWidth(300);
-            jTbl_Datos.getColumnModel().getColumn(4).setPreferredWidth(300);
-            jTbl_Datos.getColumnModel().getColumn(5).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(6).setPreferredWidth(300);
-            jTbl_Datos.getColumnModel().getColumn(7).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(8).setPreferredWidth(300);
-            jTbl_Datos.getColumnModel().getColumn(9).setPreferredWidth(300);
-            jTbl_Datos.getColumnModel().getColumn(10).setPreferredWidth(200);
-            jTbl_Datos.getColumnModel().getColumn(11).setPreferredWidth(150);
-            jTbl_Datos.getColumnModel().getColumn(12).setPreferredWidth(200);
-            jTbl_Datos.getColumnModel().getColumn(13).setPreferredWidth(300);
+        jScrollPane1.setViewportView(jtbl_datos);
+        if (jtbl_datos.getColumnModel().getColumnCount() > 0) {
+            jtbl_datos.getColumnModel().getColumn(5).setResizable(false);
+            jtbl_datos.getColumnModel().getColumn(10).setResizable(false);
         }
 
-        jtbn_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/boton-eliminar.png"))); // NOI18N
-        jtbn_Eliminar.setText("Eliminar");
-        jtbn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1450, 100));
+
+        jbtn_eliminar.setBackground(new java.awt.Color(51, 51, 51));
+        jbtn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/eliminar.png"))); // NOI18N
+        jbtn_eliminar.setText("Eliminar");
+        jbtn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbn_EliminarActionPerformed(evt);
+                jbtn_eliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbtn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
 
-        jtbn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logout.png"))); // NOI18N
-        jtbn_volver.setText("Volver");
-        jtbn_volver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtbn_volverActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Eliminar Estudiante");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
 
-        jLabel4.setText("Ingrese Rut:");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo2.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 40, -1, -1));
 
-        jbtn_rut.setText("Rut");
-
-        jbtn_id.setText("ID");
-        jbtn_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_idActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jbtn_id)
-                        .addGap(201, 201, 201)
-                        .addComponent(jbtn_rut))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jtbn_volver)
-                        .addGap(301, 301, 301)
-                        .addComponent(jtbn_Eliminar)
-                        .addGap(175, 175, 175))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_idbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtn_Buscar)))
-                .addContainerGap(154, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_idbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_Buscar)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jtxt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_rut)
-                    .addComponent(jbtn_id))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtbn_Eliminar)
-                    .addComponent(jtbn_volver)))
-        );
-
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 255, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo_largo.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1470, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1472, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtbn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbn_EliminarActionPerformed
-        if (this.jbtn_rut.isSelected()) {
+    private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_rutActionPerformed
 
-            this.jtxt_idbuscar.setEnabled(false);
+    private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
+        
+        String rut, nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
+                    int edad, id, valor_matricula, valor_matricula_pagar;
+                    double nem;
+                    Date fecha_pago_matricula;
+       
+                    
+                    Procedimiento proce = new Procedimiento();
+        if (this.jrb_rut.isSelected()) {
+           
+            rut = this.jtxt_rut.getText();
+            if (rut.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "El RUT no puede estar vacío", "Validación", 1);
+                this.jtxt_rut.requestFocus();
+                return;
+            } else {
+
+                //si el estudiante no existe
+                boolean flag;
+                // Procedimiento proce = new Procedimiento();
+                proce.buscarEstudiantePorRut(rut);
+                flag = proce.buscarEstudiantePorRutBandera(rut);
+                if (flag == false) {
+                    JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                    this.jtxt_rut.setText("");
+                    this.jtxt_rut.requestFocus();
+                } //si el estudiante exixte
+                else {
+                    
+
+                    DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
+                        
+                    //Objeto
+                    Estudiante estudiante = proce.buscarEstudiantePorRut(rut);
+
+                    id = estudiante.getId();
+                    rut = estudiante.getRut();
+                    nombre = estudiante.getNombre();
+                    appaterno = estudiante.getAppaterno();
+                    apmaterno = estudiante.getApmaterno();
+                    edad = estudiante.getEdad();
+                    nem = estudiante.getNem();
+                    gratuidad = estudiante.getGratuidad();
+                    nombre_carrera = estudiante.getNombre_carrera();
+                    nombre_sede = estudiante.getNombre_sede();
+                    estado_matricula = estudiante.getEstado_matricula();
+                    fecha_pago_matricula = estudiante.getFecha_pago_matricula();
+                    valor_matricula = estudiante.getValor_matricula();
+                    valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+
+                    tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad, nombre_carrera, nombre_sede, estado_matricula, fecha_pago_matricula, valor_matricula, valor_matricula_pagar});
+                    jbtn_buscar.setEnabled(false);
+                   // jtxt_rut.setText("");
+                }
+            }
+        }
+
+        if (this.jrb_id.isSelected()) {
+
+            
+
+            try {
+                id = Integer.parseInt(this.jtxt_id.getText());
+
+            } catch (NumberFormatException e) {
+
+                JOptionPane.showMessageDialog(this, "El id debe ser un numero", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+                return;
+            }
+
+            //si el estudiante no existe
+            boolean flag;
+            //  Procedimiento proce = new Procedimiento();
+            proce.buscarEstudiantePorId(id);
+            flag = proce.buscarEstudiantePorIdBandera(id);
+            if (flag == false) {
+                JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+            } //si el estudiante exixte
+            else {
+             
+
+                Procedimiento proce2 = new Procedimiento();
+                DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
+
+                //Objeto
+                Estudiante estudiante = proce2.buscarEstudiantePorId(id);
+
+                id = estudiante.getId();
+                rut = estudiante.getRut();
+                nombre = estudiante.getNombre();
+                appaterno = estudiante.getAppaterno();
+                apmaterno = estudiante.getApmaterno();
+                edad = estudiante.getEdad();
+                nem = estudiante.getNem();
+                gratuidad = estudiante.getGratuidad();
+                nombre_carrera = estudiante.getNombre_carrera();
+                nombre_sede = estudiante.getNombre_sede();
+                estado_matricula = estudiante.getEstado_matricula();
+                fecha_pago_matricula = estudiante.getFecha_pago_matricula();
+                valor_matricula = estudiante.getValor_matricula();
+                valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+
+                tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad, nombre_carrera, nombre_sede, estado_matricula, fecha_pago_matricula, valor_matricula, valor_matricula_pagar});                                                 //  rut, nombre, apmaterno, appaterno, gratuidad, edad, id, nem, estado_matricula, valor_matricula, valor_matricula_pagar, fecha_pago_matricula, nombre_carrera, nombre_sede FROM estudiante
+                jbtn_buscar.setEnabled(false);
+               // jtxt_id.setText("");
+
+            }
+        }
+
+//         TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_buscarActionPerformed
+
+    private void jbtn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarActionPerformed
+
+        if (this.jrb_rut.isSelected()) {
+
+            this.jtxt_id.setEnabled(false);
             String rut;
 
             rut = this.jtxt_rut.getText();
@@ -253,101 +303,73 @@ public class Eliminar extends javax.swing.JFrame {
             if (opcion == 0) {
                 proce.eliminarEstudiantePorRut(rut);
                 JOptionPane.showMessageDialog(this, "Estudiante Eliminado", "Eliminar", 1);
+                
+                limpiarTablaDatos();
+                
+                this.jtxt_rut.setText("");
+                
+     
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Estudiante no Eliminado", "Eliminar", 2);
             }
         }
-        if (this.jbtn_id.isSelected()) {
+        if (this.jrb_id.isSelected()) {
 
             this.jtxt_rut.setEnabled(false);
 
             int id;
             Procedimiento proce = new Procedimiento();
-            id = Integer.parseInt(this.jtxt_idbuscar.getText());
+            id = Integer.parseInt(this.jtxt_id.getText());
 
             int opcion = JOptionPane.showConfirmDialog(this, "Seguro que deseas eliminar al estudiandte?", "Eliminar", 0);
 
             if (opcion == 0) {
-                proce.eliminarEstudiante(id);
+                proce.eliminarEstudiantePorId(id);
                 JOptionPane.showMessageDialog(this, "Estudiante Eliminado", "Eliminar", 1);
+                
+                limpiarTablaDatos();
+                this.jtxt_id.setText("");
             } else {
                 JOptionPane.showMessageDialog(this, "Estudiante no Eliminado", "Eliminar", 2);
             }
-    }//GEN-LAST:event_jtbn_EliminarActionPerformed
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_eliminarActionPerformed
+
+    
+           //Limpia la tala 
+   public void limpiarTablaDatos() {
+        DefaultTableModel temp = (DefaultTableModel) jtbl_datos.getModel();
+        int filas = jtbl_datos.getRowCount();
+
+        for (int a = 0; filas > a; a++) {
+            temp.removeRow(0);
+        }
+   }
+    
+    
+    
+    
+    
+    private void jbt_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_volverActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_volverActionPerformed
+
+    private void jrb_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_idActionPerformed
+        if (this.jrb_id.isSelected()) {
+            jtxt_id.setEnabled(true);
+            jtxt_rut.setEnabled(false);  // TODO add your handling code here:
+    }//GEN-LAST:event_jrb_idActionPerformed
     }
-    private void jbtn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BuscarActionPerformed
-
-//    jrbtn_rut.setEnabled(false);
-//    jrbtn_id.setEnabled(false);
-        String nombre, rut, apmaterno, appaterno, gratuidad, nombre_carrera, nombre_sede, estado_matricula;
-        int id, edad, valor_matricula;
-        double nem;
-        Date fecha_pago_matricula;
-
-        Procedimiento proc = new Procedimiento();
-        DefaultTableModel modelo = (DefaultTableModel) this.jTbl_Datos.getModel();
-
-        try {
-            id = Integer.parseInt(this.jtxt_idbuscar.getText());
-        } catch (NumberFormatException e) {
-            id = 0;
-
+    private void jrb_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_rutActionPerformed
+        if (this.jrb_rut.isSelected()) {
+            jtxt_rut.setEnabled(true);
+            jtxt_id.setEnabled(false);
         }
-
-        modelo.setRowCount(0);
-
-        if (id == 0) {
-            List<Estudiante> lista = proc.buscarTodos();
-            for (Estudiante estudiante : lista) {
-                id = estudiante.getId();
-                rut = estudiante.getRut();
-                nombre = estudiante.getNombre();
-                appaterno = estudiante.getAppaterno();
-                apmaterno = estudiante.getApmaterno();
-                nem = estudiante.getNem();
-                gratuidad = estudiante.getGratuidad();
-                edad = estudiante.getEdad();
-                nombre_carrera = estudiante.getNombre_carrera();
-                nombre_sede = estudiante.getNombre_sede();
-                estado_matricula = estudiante.getEstado_matricula();
-                valor_matricula = estudiante.getValor_matricula();
-                fecha_pago_matricula = estudiante.getFecha_pago_matricula();
-
-                modelo.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, nem, gratuidad, edad, nombre_carrera, nombre_sede, estado_matricula, valor_matricula, fecha_pago_matricula});
-            }
-        } else {
-            Estudiante estudiante = proc.buscarEstudiantePorId(id);
-            id = estudiante.getId();
-            rut = estudiante.getRut();
-            nombre = estudiante.getNombre();
-            appaterno = estudiante.getAppaterno();
-            apmaterno = estudiante.getApmaterno();
-            nem = estudiante.getNem();
-            gratuidad = estudiante.getGratuidad();
-            edad = estudiante.getEdad();
-            nombre_carrera = estudiante.getNombre_carrera();
-            nombre_sede = estudiante.getNombre_sede();
-            estado_matricula = estudiante.getEstado_matricula();
-            valor_matricula = estudiante.getValor_matricula();
-            fecha_pago_matricula = estudiante.getFecha_pago_matricula();
-
-            modelo.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, nem, gratuidad, edad, nombre_carrera, nombre_sede, estado_matricula, valor_matricula, fecha_pago_matricula,});
-        }
-
-
-    }//GEN-LAST:event_jbtn_BuscarActionPerformed
-
-    private void jtbn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbn_volverActionPerformed
-        dispose();
-    }//GEN-LAST:event_jtbn_volverActionPerformed
-
-    private void jtxt_idbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_idbuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_idbuscarActionPerformed
-
-    private void jbtn_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_idActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_jrb_rutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,20 +407,19 @@ public class Eliminar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_Datos;
-    private javax.swing.JButton jbtn_Buscar;
-    private javax.swing.JRadioButton jbtn_id;
-    private javax.swing.JRadioButton jbtn_rut;
-    private javax.swing.JButton jtbn_Eliminar;
-    private javax.swing.JButton jtbn_volver;
-    private javax.swing.JTextField jtxt_idbuscar;
+    private javax.swing.JButton jbt_volver;
+    private javax.swing.JButton jbtn_buscar;
+    private javax.swing.JButton jbtn_eliminar;
+    private javax.swing.JRadioButton jrb_id;
+    private javax.swing.JRadioButton jrb_rut;
+    private javax.swing.JTable jtbl_datos;
+    private javax.swing.JTextField jtxt_id;
     private javax.swing.JTextField jtxt_rut;
     // End of variables declaration//GEN-END:variables
 }

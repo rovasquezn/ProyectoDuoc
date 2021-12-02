@@ -7,7 +7,6 @@ package vista;
 
 import controlador.Procedimiento;
 import java.util.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Estudiante;
@@ -312,7 +311,6 @@ public class Buscar extends javax.swing.JFrame {
     }//GEN-LAST:event_jrb_buscar_por_idActionPerformed
 
     //private void 
-
     private void jbtn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarActionPerformed
         if (this.jrb_buscar_por_rut.isSelected()) {
             String rut;
@@ -334,8 +332,7 @@ public class Buscar extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
                     this.jtxt_rut.setText("");
                     this.jtxt_rut.requestFocus();
-                } 
-                //si el estudiante exixte
+                } //si el estudiante exixte
                 else {
                     String nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
                     int edad, id, valor_matricula, valor_matricula_pagar;
@@ -371,9 +368,9 @@ public class Buscar extends javax.swing.JFrame {
                     valor_matricula = estudiante.getValor_matricula();
                     estado_matricula = estudiante.getEstado_matricula();
                     fecha_pago_matricula = estudiante.getFecha_pago_matricula();
-                     valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+                    valor_matricula_pagar = estudiante.getValor_matricula_pagar();
                     //Datos obtenidos de la base de datos se agregan a tabla3
-                    tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula,valor_matricula_pagar});
+                    tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula, valor_matricula_pagar});
 
                     jbtn_buscar.setEnabled(false);
                     jtxt_rut.setText("");
@@ -396,63 +393,59 @@ public class Buscar extends javax.swing.JFrame {
                 return;
             }
 
-            
-             //si el estudiante no existe
-                boolean flag;
-                Procedimiento proce = new Procedimiento();
-                proce.buscarEstudiantePorId(id);
-                flag = proce.buscarEstudiantePorIdBandera(id);
-                if (flag == false) {
-                    JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
-                    this.jtxt_id.setText("");
-                    this.jtxt_id.requestFocus();
-                } 
-                
-                //si el estudiante exixte
-
+            //si el estudiante no existe
+            boolean flag;
+            Procedimiento proce = new Procedimiento();
+            proce.buscarEstudiantePorId(id);
+            flag = proce.buscarEstudiantePorIdBandera(id);
+            if (flag == false) {
+                JOptionPane.showMessageDialog(this, "El estudiante no existe en la base de datos", "Validación", 1);
+                this.jtxt_id.setText("");
+                this.jtxt_id.requestFocus();
+            } //si el estudiante exixte
             else {
-            String rut, nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
-            int edad, valor_matricula, valor_matricula_pagar;
-            double nem;
-            Date fecha_pago_matricula;
+                String rut, nombre, appaterno, apmaterno, gratuidad, estado_matricula, nombre_carrera, nombre_sede;
+                int edad, valor_matricula, valor_matricula_pagar;
+                double nem;
+                Date fecha_pago_matricula;
 
-            Procedimiento proce2 = new Procedimiento();
-            DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
-            DefaultTableModel tablaSede = (DefaultTableModel) this.jtbl_sede.getModel();
-            DefaultTableModel tablaMatricula = (DefaultTableModel) this.jtbl_pago_matricula.getModel();
+                Procedimiento proce2 = new Procedimiento();
+                DefaultTableModel tablaDatos = (DefaultTableModel) this.jtbl_datos.getModel();
+                DefaultTableModel tablaSede = (DefaultTableModel) this.jtbl_sede.getModel();
+                DefaultTableModel tablaMatricula = (DefaultTableModel) this.jtbl_pago_matricula.getModel();
 
-            //Objeto
-            Estudiante estudiante = proce2.buscarEstudiantePorId(id);
+                //Objeto
+                Estudiante estudiante = proce2.buscarEstudiantePorId(id);
 
-            id = estudiante.getId();
-            rut = estudiante.getRut();
-            nombre = estudiante.getNombre();
+                id = estudiante.getId();
+                rut = estudiante.getRut();
+                nombre = estudiante.getNombre();
 
-            appaterno = estudiante.getAppaterno();
-            apmaterno = estudiante.getApmaterno();
-            edad = estudiante.getEdad();
-            nem = estudiante.getNem();
-            gratuidad = estudiante.getGratuidad();
+                appaterno = estudiante.getAppaterno();
+                apmaterno = estudiante.getApmaterno();
+                edad = estudiante.getEdad();
+                nem = estudiante.getNem();
+                gratuidad = estudiante.getGratuidad();
 
-            //Datos obtenidos de la base de datos se agregan a tabla1
-            tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad});
+                //Datos obtenidos de la base de datos se agregan a tabla1
+                tablaDatos.addRow(new Object[]{id, rut, nombre, appaterno, apmaterno, edad, nem, gratuidad});
 
-            nombre_sede = estudiante.getNombre_sede();
-            nombre_carrera = estudiante.getNombre_carrera();
-            //Datos obtenidos de la base de datos se agregan a tabla2
-            tablaSede.addRow(new Object[]{nombre_sede, nombre_carrera});
+                nombre_sede = estudiante.getNombre_sede();
+                nombre_carrera = estudiante.getNombre_carrera();
+                //Datos obtenidos de la base de datos se agregan a tabla2
+                tablaSede.addRow(new Object[]{nombre_sede, nombre_carrera});
 
-            valor_matricula = estudiante.getValor_matricula();
-            estado_matricula = estudiante.getEstado_matricula();
-            fecha_pago_matricula = estudiante.getFecha_pago_matricula();
-            valor_matricula_pagar = estudiante.getValor_matricula_pagar();
-            //Datos obtenidos de la base de datos se agregan a tabla3
-            tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula, valor_matricula_pagar});
+                valor_matricula = estudiante.getValor_matricula();
+                estado_matricula = estudiante.getEstado_matricula();
+                fecha_pago_matricula = estudiante.getFecha_pago_matricula();
+                valor_matricula_pagar = estudiante.getValor_matricula_pagar();
+                //Datos obtenidos de la base de datos se agregan a tabla3
+                tablaMatricula.addRow(new Object[]{valor_matricula, estado_matricula, fecha_pago_matricula, valor_matricula_pagar});
 
-            jbtn_buscar.setEnabled(false);
-            jtxt_id.setText("");
+                jbtn_buscar.setEnabled(false);
+                jtxt_id.setText("");
 
-             }
+            }
         }
 
         // TODO add your handling code here:
@@ -487,7 +480,6 @@ public class Buscar extends javax.swing.JFrame {
             temp3.removeRow(0);
         }
     }
-
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();        // TODO add your handling code here:

@@ -563,7 +563,7 @@ public class Ingresar extends javax.swing.JFrame {
         String mes = this.jcbox_mes.getSelectedItem().toString();
         String anio = this.jcbox_anio.getSelectedItem().toString();
 
-        fechaCadena = dia + "/" + mes + "/" + anio;
+        fechaCadena = dia+"/"+mes+"/"+anio;
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
@@ -575,6 +575,8 @@ public class Ingresar extends javax.swing.JFrame {
             return;
         }
 
+
+        
         valor_matricula_pagar = Integer.parseInt(this.jtxt_valor_matricula_pagar.getText());
         
         
