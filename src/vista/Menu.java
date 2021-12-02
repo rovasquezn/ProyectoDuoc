@@ -156,11 +156,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_ingresarActionPerformed
 
     private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
-        // TODO add your handling code here:
+        new Eliminar().setVisible(true);
     }//GEN-LAST:event_jmi_eliminarActionPerformed
 
     private void jmi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarActionPerformed
-        // TODO add your handling code here:
+        new Modificar().setVisible(true);
     }//GEN-LAST:event_jmi_modificarActionPerformed
 
     private void jmi_buscar_estudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_buscar_estudianteActionPerformed
