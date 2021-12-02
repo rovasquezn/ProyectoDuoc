@@ -15,7 +15,7 @@ import modelo.Estudiante;
 
 /**
  *
- * @author rodrigo
+ * @author Rodrigo Vasquez, Cristian Ubilla, Franco Navarrete - Proyecto Duoc
  */
 public class Ingresar extends javax.swing.JFrame {
 
@@ -105,9 +105,6 @@ public class Ingresar extends javax.swing.JFrame {
         jtxt_nem = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jft_rut = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -147,26 +144,21 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(jbtn_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, -1, -1));
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Estado Matricula");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Valor Matrícula $");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Fecha de Pago Matricula");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
 
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Sede");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Carrera");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
 
@@ -182,7 +174,6 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jcbox_carreras, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 320, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Apellido Materno");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
 
@@ -195,7 +186,6 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jcbox_estado_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Edad");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
@@ -207,7 +197,6 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jtxt_valor_matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 86, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Gratuidad");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
@@ -216,7 +205,6 @@ public class Ingresar extends javax.swing.JFrame {
 
         buttonGroup1.add(jrdb_tiene);
         jrdb_tiene.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jrdb_tiene.setForeground(new java.awt.Color(0, 0, 0));
         jrdb_tiene.setText("Tiene");
         jrdb_tiene.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +217,6 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jcbox_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 53, -1));
 
         buttonGroup1.add(jrdb_no_tiene);
-        jrdb_no_tiene.setForeground(new java.awt.Color(0, 0, 0));
         jrdb_no_tiene.setText("No Tiene");
         jrdb_no_tiene.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +228,6 @@ public class Ingresar extends javax.swing.JFrame {
         jcbox_anio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022" }));
         jPanel1.add(jcbox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nota Enseñanza Media (N.E.M)");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, -1, -1));
 
@@ -278,12 +264,10 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, 36));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingreso de datos");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Ingrese R.U.T.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
@@ -306,7 +290,6 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jbtn_verificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
@@ -316,11 +299,9 @@ public class Ingresar extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 682, 10));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Apellido Paterno");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Total Matricula $");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
@@ -346,20 +327,6 @@ public class Ingresar extends javax.swing.JFrame {
         jSeparator3.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 440, 10));
-
-        jft_rut.setText("cxscdsdwsdsx");
-        jPanel1.add(jft_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 40));
-
-        jFormattedTextField2.setText("jFormattedTextField2");
-        jPanel1.add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
-
-        jFormattedTextField1.setText("jFormattedTextField1");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo.png"))); // NOI18N
         jLabel14.setText("ssss");
@@ -720,10 +687,6 @@ public class Ingresar extends javax.swing.JFrame {
                 } // TODO add your handling code here:
     }//GEN-LAST:event_jrdb_no_tieneActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
-
     private int calcularDescuento(){
    Double nem = Double.parseDouble(this.jtxt_nem.getText());
     int valor_matricula = Integer.parseInt(this.jtxt_valor_matricula.getText());
@@ -766,42 +729,40 @@ public class Ingresar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ingresar().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Ingresar().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -835,7 +796,6 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbox_estado_matricula;
     private javax.swing.JComboBox<String> jcbox_mes;
     private javax.swing.JComboBox<String> jcbox_sedes;
-    private javax.swing.JFormattedTextField jft_rut;
     private javax.swing.JRadioButton jrdb_no_tiene;
     private javax.swing.JRadioButton jrdb_tiene;
     private javax.swing.JTextField jtxt_apmaterno;

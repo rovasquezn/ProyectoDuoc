@@ -13,7 +13,7 @@ import modelo.Estudiante;
 
 /**
  *
- * @author rodrigo
+ * @author Rodrigo Vasquez, Cristian Ubilla, Franco Navarrete - Proyecto Duoc
  */
 public class Buscar extends javax.swing.JFrame {
 

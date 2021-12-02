@@ -7,14 +7,13 @@ package vista;
 
 import controlador.Procedimiento;
 import java.util.Date;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Estudiante;
 
 /**
  *
- * @author rodrigo
+ * @author Rodrigo Vasquez, Cristian Ubilla, Franco Navarrete - Proyecto Duoc
  */
 public class Eliminar extends javax.swing.JFrame {
 

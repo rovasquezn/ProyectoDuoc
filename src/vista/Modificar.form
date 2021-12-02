@@ -122,9 +122,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_edad">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Edad"/>
           </Properties>
           <Constraints>
@@ -194,9 +191,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_nem">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="N.E.M"/>
           </Properties>
           <Constraints>
@@ -207,9 +201,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_rut">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="R.U.T"/>
           </Properties>
           <Constraints>
@@ -222,9 +213,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar Datos Estudiante"/>
           </Properties>
@@ -258,9 +246,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_gratuidad">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Gratuidad"/>
           </Properties>
           <Constraints>
@@ -291,9 +276,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_id">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Ingrese ID"/>
           </Properties>
           <Constraints>
@@ -326,9 +308,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_valor_matricula">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Valor Matricula"/>
           </Properties>
           <Constraints>
@@ -339,9 +318,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_estado_matricula">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Estado Matricula"/>
           </Properties>
           <Constraints>
@@ -369,9 +345,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_nombre">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
           <Constraints>
@@ -389,9 +362,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_appaterno">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
           </Properties>
           <Constraints>
@@ -402,9 +372,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_fecha_pago">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Fecha Pago"/>
           </Properties>
           <Constraints>
@@ -415,9 +382,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_apmaterno">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Apellido Materno"/>
           </Properties>
           <Constraints>
@@ -435,9 +399,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_carrera">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Carrera"/>
           </Properties>
           <Constraints>
@@ -448,9 +409,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_fecha_pago1">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Total Matricula"/>
           </Properties>
           <Constraints>
@@ -461,9 +419,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlb_sede">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Sede"/>
           </Properties>
           <Constraints>

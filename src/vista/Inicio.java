@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * @author rodrigo
+ * @author Rodrigo Vasquez, Cristian Ubilla, Franco Navarrete - Proyecto Duoc
  */
 public class Inicio extends javax.swing.JFrame {
 
