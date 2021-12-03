@@ -63,7 +63,7 @@ public class Eliminar extends javax.swing.JFrame {
                 jbt_volverActionPerformed(evt);
             }
         });
-        jPanel1.add(jbt_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, -1, -1));
+        jPanel1.add(jbt_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, -1, -1));
 
         jbtn_buscar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_buscar.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,7 +74,7 @@ public class Eliminar extends javax.swing.JFrame {
                 jbtn_buscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, -1, -1));
+        jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, -1, -1));
 
         buttonGroup1.add(jrb_id);
         jrb_id.setText("Buscar por ID");
@@ -83,7 +83,7 @@ public class Eliminar extends javax.swing.JFrame {
                 jrb_idActionPerformed(evt);
             }
         });
-        jPanel1.add(jrb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
+        jPanel1.add(jrb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         buttonGroup1.add(jrb_rut);
         jrb_rut.setText("Buscar por R.U.T.");
@@ -92,15 +92,15 @@ public class Eliminar extends javax.swing.JFrame {
                 jrb_rutActionPerformed(evt);
             }
         });
-        jPanel1.add(jrb_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, -1, -1));
-        jPanel1.add(jtxt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 180, -1));
+        jPanel1.add(jrb_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, -1));
+        jPanel1.add(jtxt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 180, -1));
 
         jtxt_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxt_rutActionPerformed(evt);
             }
         });
-        jPanel1.add(jtxt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 130, 160, -1));
+        jPanel1.add(jtxt_rut, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 160, -1));
 
         jtbl_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,11 +120,11 @@ public class Eliminar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtbl_datos);
         if (jtbl_datos.getColumnModel().getColumnCount() > 0) {
-            jtbl_datos.getColumnModel().getColumn(5).setResizable(false);
-            jtbl_datos.getColumnModel().getColumn(10).setResizable(false);
+            jtbl_datos.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jtbl_datos.getColumnModel().getColumn(5).setPreferredWidth(10);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1450, 100));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1290, 100));
 
         jbtn_eliminar.setBackground(new java.awt.Color(51, 51, 51));
         jbtn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,23 +135,23 @@ public class Eliminar extends javax.swing.JFrame {
                 jbtn_eliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        jPanel1.add(jbtn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Eliminar Estudiante");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/logo2.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 40, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 40, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/fondo_largo.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1470, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1472, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
