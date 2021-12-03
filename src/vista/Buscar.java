@@ -322,6 +322,11 @@ public class Buscar extends javax.swing.JFrame {
                 this.jtxt_rut.requestFocus();
                 return;
             } else {
+                 if(!this.jtxt_rut.getText().contains("-")){
+                JOptionPane.showMessageDialog(this, "El RUT no es valido, Reintente.", "Validación", 1);
+                this.jtxt_rut.requestFocus();
+                return;
+            }
 
                 //si el estudiante no existe
                 boolean flag;

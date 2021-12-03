@@ -50,7 +50,7 @@ public class Eliminar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -77,7 +77,6 @@ public class Eliminar extends javax.swing.JFrame {
         jPanel1.add(jbtn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, -1, -1));
 
         buttonGroup1.add(jrb_id);
-        jrb_id.setForeground(new java.awt.Color(0, 0, 0));
         jrb_id.setText("Buscar por ID");
         jrb_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +86,6 @@ public class Eliminar extends javax.swing.JFrame {
         jPanel1.add(jrb_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         buttonGroup1.add(jrb_rut);
-        jrb_rut.setForeground(new java.awt.Color(0, 0, 0));
         jrb_rut.setText("Buscar por R.U.T.");
         jrb_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +138,6 @@ public class Eliminar extends javax.swing.JFrame {
         jPanel1.add(jbtn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Eliminar Estudiante");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
 
@@ -162,6 +159,7 @@ public class Eliminar extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_rutActionPerformed
@@ -186,6 +184,11 @@ public class Eliminar extends javax.swing.JFrame {
                 this.jtxt_rut.requestFocus();
                 return;
             } else {
+                 if(!this.jtxt_rut.getText().contains("-")){
+                JOptionPane.showMessageDialog(this, "El RUT no es valido, Reintente.", "Validación", 1);
+                this.jtxt_rut.requestFocus();
+                return;
+            }
 
                 //si el estudiante no existe
                 boolean flag;

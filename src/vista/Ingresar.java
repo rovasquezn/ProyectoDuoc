@@ -393,6 +393,11 @@ public class Ingresar extends javax.swing.JFrame {
             this.jtxt_rut_1.requestFocus();
             return;
         } else {
+            if(!this.jtxt_rut_1.getText().contains("-")){
+                JOptionPane.showMessageDialog(this, "El RUT no es valido, Reintente.", "Validación", 1);
+                this.jtxt_rut_1.requestFocus();
+                return;
+            }
 
             boolean flag;
             Procedimiento proce = new Procedimiento();
@@ -508,8 +513,12 @@ public class Ingresar extends javax.swing.JFrame {
             return;
         }
 
-        nombre_sede = this.jcbox_sedes.getSelectedItem().toString();
-
+        
+        
+        
+        
+         nombre_sede = this.jcbox_sedes.getSelectedItem().toString();
+ 
         nombre_carrera = this.jcbox_carreras.getSelectedItem().toString();
 
         estado_matricula = this.jcbox_estado_matricula.getSelectedItem().toString();
@@ -673,8 +682,8 @@ public class Ingresar extends javax.swing.JFrame {
                     
                      jtxt_valor_matricula_pagar.setText(String.valueOf(0));
             
-            JOptionPane.showMessageDialog(this, "El estudiante no paga Matricula", "Aviso", 1);
-                    
+            JOptionPane.showMessageDialog(this, "El estudiante " + this.jtxt_nombre.getText() + " "+ this.jtxt_appaterno.getText() + " " + this.jtxt_apmaterno.getText() + "\n\n" + "No paga Matricula", "Aviso", 1);
+                     
                     
                     
                 }   // TODO add your handling code here:
@@ -696,7 +705,7 @@ public class Ingresar extends javax.swing.JFrame {
          
               jtxt_valor_matricula_pagar.setText(String.valueOf(valor_matricula_pagar));
             
-            JOptionPane.showMessageDialog(this, "Califica para descuento Matrícula (30%)", "Aviso", 1);
+            JOptionPane.showMessageDialog(this, "Nota ingresada: " + Double.parseDouble(this.jtxt_nem.getText()) + "\n\n" + "Califica para descuento Matrícula (30%)", "Aviso", 1);
             jbtn_ingresar.setEnabled(true);
             return valor_matricula_pagar;
    
@@ -711,7 +720,7 @@ public class Ingresar extends javax.swing.JFrame {
                 
             else{       
                 
-             JOptionPane.showMessageDialog(this, "No califica para descuento Matrícula (30%)", "Aviso", 1);
+             JOptionPane.showMessageDialog(this, "Nota ingresada: " + Double.parseDouble(this.jtxt_nem.getText()) + "\n\n" + "No califica para descuento Matrícula (30%)", "Aviso", 1);
              jtxt_valor_matricula_pagar.setText(String.valueOf(valor_matricula));
                  jbtn_ingresar.setEnabled(true);
         return valor_matricula;
